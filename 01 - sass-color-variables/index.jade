@@ -1,0 +1,31 @@
+//output:index.html
+
+doctype html
+head
+  meta(charset="utf-8")
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+  link(rel="stylesheet", href="css/screen.css")
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+  script(src="https://unpkg.com/vue/dist/vue.js")
+  script(src="color-widget.js")
+  title SASS Color Widget
+body
+  .container#app
+    .row
+      .col-xs-12.col-sm-12
+        br
+        h2 sass Color Variables
+        hr
+      .col-xs-12.col-sm-4
+        textarea(v-model="colorsetting")
+      .col-xs-12.col-sm-8
+        ul.row
+          li.col-sm-4(v-for='c in colorcards')
+            .colorcard
+              .block(:style='c.colorcss')
+              .info
+                .name {{c.name}}
+                .code {{c.colorcode}}
+          

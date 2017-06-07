@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/screen.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="color-widget.js"></script>
+  <title>SASS Color Widget</title>
+</head>
+<body>
+  <div id="app" class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12"><br>
+        <h2>sass Color Variables</h2>
+        <hr>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <textarea v-model="colorsetting"></textarea>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <ul class="row">
+          <li v-for="c in colorcards" class="col-sm-4">
+            <div class="colorcard">
+              <div :style="c.colorcss" class="block"></div>
+              <div class="info">
+                <div class="name">{{c.name}}</div>
+                <div class="code">{{c.colorcode}}</div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
