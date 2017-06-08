@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
+    <link rel="stylesheet" href="css/screen.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="hotel.js"></script>
+    <title>Hotel Practice</title>
+  </head>
+  <body>
+    <div id="app" class="container-fluid">
+      <div class="indep_cover"></div>
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="row">
+            <div class="col-sm-12">
+              <h2>房型一覽</h2>
+              <hr>
+            </div>
+            <Room v-for="(room,key) in rooms" :room_data="room" :hotel_discount="discount" :hotel_tip="tip" :key="room.id"></Room>
+          </div>
+        </div>
+      </div>
+    </div>
+    <template id="room">
+      <div class="col-md-4 col-sm-4 room_col">
+        <div class="room_container">
+          <div class="cover">
+            <h3>{{room_data.name}}</h3>
+          </div>
+          <div class="info">
+            <h5>{{room_data.eng}}</h5>
+            <h5>{{room_data.discount}}*{{hotel_discount}}={{Math.round(final_discount*100)}}折</h5>
+            <h4> <span>TWD </span><span> 
+                <s>{{room_data.price}}</s></span><span>{{final_price}}$</span></h4>
+          </div>
+        </div>
+      </div>
+    </template>
+  </body>
+</html>

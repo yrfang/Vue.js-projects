@@ -1,0 +1,45 @@
+//output:index.html
+
+doctype
+html(lang='en')
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900")
+    link(rel="stylesheet", href="css/screen.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    script(src="https://unpkg.com/vue/dist/vue.js")
+    script(src="hotel.js")
+    title Hotel Practice
+  body
+    #app.container-fluid
+      .indep_cover
+      .row
+        .col-sm-9
+          .row
+            .col-sm-12
+              h2 房型一覽
+              hr
+            Room(
+              v-for='(room,key) in rooms',
+              :room_data="room",
+              :hotel_discount="discount",
+              :hotel_tip="tip",
+              :key="room.id"
+          )
+    
+    template#room
+      .col-md-4.col-sm-4.room_col
+        .room_container
+          .cover
+            h3 {{room_data.name}}
+          .info
+            h5 {{room_data.eng}}
+            h5 {{room_data.discount}}*{{hotel_discount}}={{Math.round(final_discount*100)}}折
+            h4 
+              span TWD 
+              span 
+                s {{room_data.price}}
+              span {{final_price}}$
+              
