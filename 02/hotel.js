@@ -114,7 +114,10 @@ $(document).ready(function() {
         return (this.room_data.discount)*(this.hotel_discount);
       },
       final_price: function() {
-        return Math.round(this.room_data.price*this.final_discount)
+        return parseInt(this.room_data.price*this.final_discount+1.0*this.hotel_tip)
+      },
+      bg_css: function() {
+        return {"background-image": "url('"+this.room_data.cover+"')"}
       }
     }
   });
@@ -125,6 +128,32 @@ $(document).ready(function() {
       rooms: rooms,
       discount: 0.9,
       tip: 200
+    },
+    methods: {
+      price_sale: function(delta) {
+        var vobj = this;
+        this.rooms.forEach(function(obj) {
+          obj.price -= delta;
+        });
+      },
+      delete_room: function(id) {
+        this.rooms.splice(id,1);
+      },
+      add_new_room: function() {
+          this.rooms.push({
+          name: "新房間",
+          eng: "new room",
+          equipment: {},
+          cover: "",
+          price: 0,
+          discount: 1,
+          "equipment": {
+            "wifi": true,
+            "bathtub": true,
+            "breakfast": true
+          }
+        });
+      }
     }
   });
 

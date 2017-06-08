@@ -6,29 +6,189 @@
 /* line 9, ../scss/screen.scss */
 * {
   font-family: 'Roboto', sans-serif, 微軟正黑體;
-  border: solid 1px #000;
 }
 
-/* line 18, ../scss/screen.scss */
-.room_container {
-  padding: 20px;
+/* line 14, ../scss/screen.scss */
+body {
+  padding: 40px;
+  height: 100vh;
 }
-/* line 21, ../scss/screen.scss */
+
+/* line 19, ../scss/screen.scss */
+.row {
+  padding: 0px;
+}
+
+/* line 23, ../scss/screen.scss */
+.scroll_able_information {
+  overflow-y: scroll;
+  height: 100vh;
+  padding-bottom: 100px;
+  background-color: #fafafa;
+  padding: 20px;
+  padding-top: 0px;
+}
+@media screen and (max-width: 767px) {
+  /* line 23, ../scss/screen.scss */
+  .scroll_able_information {
+    height: 40vh;
+  }
+}
+
+/* line 35, ../scss/screen.scss */
+.scroll_able_eachroom {
+  overflow-y: scroll;
+  height: 100vh;
+  padding-bottom: 100px;
+}
+@media screen and (max-width: 767px) {
+  /* line 35, ../scss/screen.scss */
+  .scroll_able_eachroom {
+    margin-top: 15px;
+    height: 60vh;
+  }
+}
+
+/* line 45, ../scss/screen.scss */
+.room_information {
+  padding: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* line 51, ../scss/screen.scss */
+.rooms_price, .rooms_tip {
+  width: 90%;
+}
+
+/* line 55, ../scss/screen.scss */
+.toggle_check {
+  display: none;
+  max-height: 120px;
+}
+
+/* line 59, ../scss/screen.scss */
+.toggle_check:checked + .edit_part {
+  max-height: 500px;
+}
+
+/* line 63, ../scss/screen.scss */
+.room_edit {
+  border: solid 1px #eee;
+  padding: 10px;
+  border-left: solid 4px #ccc;
+}
+/* line 68, ../scss/screen.scss */
+.room_edit .room_tag {
+  display: block;
+  cursor: pointer;
+}
+/* line 72, ../scss/screen.scss */
+.room_edit label {
+  margin: 0px;
+}
+/* line 75, ../scss/screen.scss */
+.room_edit .edit_part {
+  max-height: 0px;
+  overflow: hidden;
+}
+/* line 79, ../scss/screen.scss */
+.room_edit .delete_btn {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  width: 20px;
+}
+/* line 84, ../scss/screen.scss */
+.room_edit .delete_btn:hover {
+  color: #DB4343;
+}
+
+/* line 90, ../scss/screen.scss */
+.add_room {
+  cursor: pointer;
+  font-size: 18px;
+}
+/* line 93, ../scss/screen.scss */
+.add_room:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+/* line 99, ../scss/screen.scss */
+.room_container {
+  box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.1);
+  margin: 20px 5px;
+  cursor: pointer;
+}
+/* line 103, ../scss/screen.scss */
+.room_container:hover {
+  box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.2);
+}
+/* line 105, ../scss/screen.scss */
+.room_container:hover .cover {
+  background-size: 110%;
+}
+/* line 108, ../scss/screen.scss */
+.room_container:hover .delete_img_btn {
+  opacity: 1;
+}
+/* line 113, ../scss/screen.scss */
+.room_container .delete_img_btn {
+  color: #fff;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 16px;
+  opacity: 0;
+  transition: 0.5s;
+}
+/* line 121, ../scss/screen.scss */
+.room_container .delete_img_btn:hover {
+  color: #DB4343;
+}
+/* line 126, ../scss/screen.scss */
 .room_container .cover {
   position: relative;
   height: 150px;
   background-color: #eee;
+  background-size: 100%;
+  background-position: center center;
+  transition: 0.5s;
 }
-/* line 26, ../scss/screen.scss */
+/* line 134, ../scss/screen.scss */
 .room_container .cover h3 {
   position: absolute;
   bottom: 10px;
   font-size: 18px;
   padding: 6px 20px;
   background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* line 36, ../scss/screen.scss */
+/* line 145, ../scss/screen.scss */
 .info {
   padding: 10px;
+}
+
+/* line 149, ../scss/screen.scss */
+.icons {
+  padding-left: 15px;
+  vertical-align: middle;
+}
+/* line 152, ../scss/screen.scss */
+.icons i {
+  margin-left: 7px;
+  color: #777;
+}
+
+/* line 158, ../scss/screen.scss */
+.final_price {
+  float: right;
+  font-size: 24px;
+  color: #DB4343;
+}
+/* line 162, ../scss/screen.scss */
+.final_price:after {
+  content: "$";
 }

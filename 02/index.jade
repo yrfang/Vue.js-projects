@@ -5,6 +5,7 @@ html(lang='en')
   head
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900")
     link(rel="stylesheet", href="css/screen.css")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
@@ -16,8 +17,56 @@ html(lang='en')
     #app.container-fluid
       .indep_cover
       .row
+        .col-sm-3.scroll_able_information
+          .row.room_information
+            h2 飯店資訊
+            hr
+            .form-group
+              label 總折數
+              input.form-control.rooms_price(v-model='discount')
+            .form-group
+              label 服務費
+              input.form-control.rooms_tip(v-model='tip')
+            .form-group
+              button.btn.btn-default(@click="price_sale(100)") 週年特價(-100$)
+            br
+            h3 房型編輯 ({{rooms.length}}間)
+            hr
+            .form-group.room_edit(v-for='(room, id) in rooms')
+              label.room_tag
+                h4 {{room.name}}
+                  i.fa.fa-trash.delete_btn(@click='delete_room(id)')
+                input.toggle_check(type="checkbox")
+                .edit_part
+                  hr
+                  .form-group
+                    label 名稱(中)
+                    input.form-control(v-model='room.name')
+                  .form-group
+                    label 名稱(英)
+                    input.form-control(v-model='room.eng')
+                  .form-group
+                    label 折價
+                    input.form-control(v-model='room.discount')
+                  .form-group
+                    label 價錢
+                    input.form-control(v-model='room.price')
+                  .form-group
+                    label 圖片
+                    input.form-control(v-model='room.cover')
+                  .form-group
+                    label 設備
+                    label Wifi
+                      input(type='checkbox', v-model='room.equipment.wifi')
+                    label 浴缸
+                      input(type='checkbox', v-model='room.equipment.bathtub')
+                    label 早餐
+                      input(type='checkbox', v-model='room.equipment.breakfast')
+            .form-group.room_edit.add_room(@click="add_new_room") ＋新房間
+               
+
         .col-sm-9
-          .row
+          .row.scroll_able_eachroom
             .col-sm-12
               h2 房型一覽
               hr
@@ -26,20 +75,24 @@ html(lang='en')
               :room_data="room",
               :hotel_discount="discount",
               :hotel_tip="tip",
+              :delete_room="delete_room",
               :key="room.id"
           )
     
     template#room
-      .col-md-4.col-sm-4.room_col
+      .col-lg-4.col-md-6.col-sm-12.room_col
         .room_container
-          .cover
+          .cover(v-bind:style="bg_css")
             h3 {{room_data.name}}
+            i.fa.fa-times.delete_img_btn(@click='delete_room(room.id)')
           .info
             h5 {{room_data.eng}}
+              span.icons(v-if='room_data.equipment')
+                i.fa.fa-wifi(v-if='room_data.equipment.wifi')
+                i.fa.fa-bathtub(v-if='room_data.equipment.bathtub')
+                i.fa.fa-coffee(v-if='room_data.equipment.breakfast')
             h5 {{room_data.discount}}*{{hotel_discount}}={{Math.round(final_discount*100)}}折
-            h4 
-              span TWD 
-              span 
-                s {{room_data.price}}
-              span {{final_price}}$
+            h3 TWD
+              s {{room_data.price}}
+              span.final_price {{final_price}}
               
