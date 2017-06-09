@@ -51,7 +51,7 @@ body {
 
 /* line 45, ../scss/screen.scss */
 .room_information {
-  padding: 0px;
+  padding: 10px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -120,20 +120,21 @@ body {
   box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.1);
   margin: 20px 5px;
   cursor: pointer;
+  height: 300px;
 }
-/* line 103, ../scss/screen.scss */
+/* line 104, ../scss/screen.scss */
 .room_container:hover {
   box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.2);
 }
-/* line 105, ../scss/screen.scss */
+/* line 106, ../scss/screen.scss */
 .room_container:hover .cover {
   background-size: 110%;
 }
-/* line 108, ../scss/screen.scss */
+/* line 109, ../scss/screen.scss */
 .room_container:hover .delete_img_btn {
   opacity: 1;
 }
-/* line 113, ../scss/screen.scss */
+/* line 114, ../scss/screen.scss */
 .room_container .delete_img_btn {
   color: #fff;
   position: absolute;
@@ -143,11 +144,11 @@ body {
   opacity: 0;
   transition: 0.5s;
 }
-/* line 121, ../scss/screen.scss */
+/* line 122, ../scss/screen.scss */
 .room_container .delete_img_btn:hover {
   color: #DB4343;
 }
-/* line 126, ../scss/screen.scss */
+/* line 127, ../scss/screen.scss */
 .room_container .cover {
   position: relative;
   height: 150px;
@@ -156,7 +157,7 @@ body {
   background-position: center center;
   transition: 0.5s;
 }
-/* line 134, ../scss/screen.scss */
+/* line 135, ../scss/screen.scss */
 .room_container .cover h3 {
   position: absolute;
   bottom: 10px;
@@ -166,29 +167,45 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* line 145, ../scss/screen.scss */
+/* line 146, ../scss/screen.scss */
 .info {
   padding: 10px;
 }
 
-/* line 149, ../scss/screen.scss */
+@media screen and (max-width: 767px) {
+  /* line 152, ../scss/screen.scss */
+  .info .icons {
+    display: block;
+    padding-left: 0px;
+  }
+  /* line 156, ../scss/screen.scss */
+  .info i {
+    font-size: 14px;
+    display: inline-block;
+  }
+  /* line 160, ../scss/screen.scss */
+  .info h3, .info s, .info span {
+    font-size: 18px;
+  }
+}
+/* line 166, ../scss/screen.scss */
 .icons {
   padding-left: 15px;
   vertical-align: middle;
 }
-/* line 152, ../scss/screen.scss */
+/* line 169, ../scss/screen.scss */
 .icons i {
   margin-left: 7px;
   color: #777;
 }
 
-/* line 158, ../scss/screen.scss */
+/* line 175, ../scss/screen.scss */
 .final_price {
   float: right;
   font-size: 24px;
   color: #DB4343;
 }
-/* line 162, ../scss/screen.scss */
+/* line 179, ../scss/screen.scss */
 .final_price:after {
   content: "$";
 }

@@ -43,7 +43,7 @@ body {
 }
 
 .room_information {
-  padding: 0px;
+  padding: 10px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -100,6 +100,7 @@ body {
   box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.1);
   margin: 20px 5px;
   cursor: pointer;
+  height: 300px;
   &:hover {
     box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.2);
     .cover {
@@ -144,6 +145,22 @@ body {
 
 .info {
   padding: 10px;
+}
+
+@media screen and (max-width: 767px){
+  .info {
+    .icons {
+      display: block;
+      padding-left: 0px;
+    }
+    i {
+      font-size: 14px;
+      display: inline-block;
+    }
+    h3, s, span {
+      font-size: 18px;
+    }
+  }
 }
 
 .icons {
