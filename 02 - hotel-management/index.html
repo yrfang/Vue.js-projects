@@ -31,11 +31,16 @@
             <div class="form-group">
               <button @click="price_sale(100)" class="btn btn-default">週年特價(-100$)</button>
             </div><br>
-            <h3>房型編輯 ({{rooms.length}}間)</h3>
+            <h3>房型總數 (共{{rooms.length}}間)</h3>
+            <hr>
+            <h3>房間編輯{{edit_id+1}}</h3>
+            <select v-model="edit_id" class="form-control select_scroll">
+              <option v-for="(room, id) in rooms" :value="id">{{room.name}}</option>
+            </select>
             <hr>
             <div v-for="(room, id) in rooms" class="form-group room_edit">
               <label class="room_tag">
-                <h4>{{room.name}}<i @click="delete_room(id)" class="fa fa-trash delete_btn"></i></h4>
+                <h4>{{id+1}} {{room.name}}<i @click="delete_room(id)" class="fa fa-trash delete_btn"></i></h4>
                 <input type="checkbox" class="toggle_check">
                 <div class="edit_part">
                   <hr>

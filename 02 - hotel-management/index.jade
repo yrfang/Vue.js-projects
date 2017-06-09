@@ -30,11 +30,15 @@ html(lang='en')
             .form-group
               button.btn.btn-default(@click="price_sale(100)") 週年特價(-100$)
             br
-            h3 房型編輯 ({{rooms.length}}間)
+            h3 房型總數 (共{{rooms.length}}間)
+            hr
+            h3 房間編輯{{edit_id+1}}
+            select.form-control.select_scroll(v-model="edit_id")
+              option(v-for="(room, id) in rooms", :value="id") {{room.name}}
             hr
             .form-group.room_edit(v-for='(room, id) in rooms')
               label.room_tag
-                h4 {{room.name}}
+                h4 {{id+1}} {{room.name}}
                   i.fa.fa-trash.delete_btn(@click='delete_room(id)')
                 input.toggle_check(type="checkbox")
                 .edit_part

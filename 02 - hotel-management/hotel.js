@@ -127,7 +127,9 @@ $(document).ready(function() {
     data: {
       rooms: rooms,
       discount: 0.9,
-      tip: 200
+      tip: 200,
+      edit_state: '',
+      edit_id: 0
     },
     methods: {
       price_sale: function(delta) {
