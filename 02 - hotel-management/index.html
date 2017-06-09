@@ -83,7 +83,7 @@
               <h2>房型一覽</h2>
               <hr>
             </div>
-            <Room v-for="(room,key) in rooms" :room_data="room" :hotel_discount="discount" :hotel_tip="tip" :delete_room="delete_room" :key="room.id"></Room>
+            <Room v-for="(room,id) in rooms" :room_data="room" :hotel_discount="discount" :hotel_tip="tip" :id="id" :key="room.id" :delete_room="delete_room"></Room>
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@
       <div class="col-lg-4 col-md-6 col-sm-12 room_col">
         <div class="room_container">
           <div v-bind:style="bg_css" class="cover">
-            <h3>{{room_data.name}}</h3><i @click="delete_room(room.id)" class="fa fa-times delete_img_btn"></i>
+            <h3>{{room_data.name}}</h3><i @click="delete_room(id)" class="fa fa-times delete_img_btn"></i>
           </div>
           <div class="info">
             <h5>{{room_data.eng}}<span v-if="room_data.equipment" class="icons"><i v-if="room_data.equipment.wifi" class="fa fa-wifi"></i><i v-if="room_data.equipment.bathtub" class="fa fa-bathtub"></i><i v-if="room_data.equipment.breakfast" class="fa fa-coffee"></i></span></h5>

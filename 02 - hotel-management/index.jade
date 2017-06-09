@@ -71,12 +71,13 @@ html(lang='en')
               h2 房型一覽
               hr
             Room(
-              v-for='(room,key) in rooms',
-              :room_data="room",
-              :hotel_discount="discount",
-              :hotel_tip="tip",
-              :delete_room="delete_room",
-              :key="room.id"
+            v-for='(room,id) in rooms',
+            :room_data="room",
+            :hotel_discount="discount",
+            :hotel_tip="tip",
+            :id="id",
+            :key="room.id",
+            :delete_room="delete_room"
           )
     
     template#room
@@ -84,7 +85,7 @@ html(lang='en')
         .room_container
           .cover(v-bind:style="bg_css")
             h3 {{room_data.name}}
-            i.fa.fa-times.delete_img_btn(@click='delete_room(room.id)')
+            i.fa.fa-times.delete_img_btn(@click='delete_room(id)')
           .info
             h5 {{room_data.eng}}
               span.icons(v-if='room_data.equipment')
