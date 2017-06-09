@@ -33,8 +33,8 @@
             </div><br>
             <h3>房型總數 (共{{rooms.length}}間)</h3>
             <hr>
-            <h3>房間編輯{{edit_id+1}}</h3>
-            <select v-model="edit_id" class="form-control select_scroll">
+            <h3>房間編輯{{id+1}}</h3>
+            <select v-model="id" class="form-control select_scroll">
               <option v-for="(room, id) in rooms" :value="id">{{room.name}}</option>
             </select>
             <hr>

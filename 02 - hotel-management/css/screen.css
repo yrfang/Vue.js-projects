@@ -52,95 +52,96 @@ body {
 /* line 45, ../scss/screen.scss */
 .room_information {
   padding: 10px;
+  padding-top: 0px;
   padding-left: 10px;
   padding-right: 10px;
 }
 
-/* line 51, ../scss/screen.scss */
+/* line 52, ../scss/screen.scss */
 .rooms_price, .rooms_tip {
   width: 90%;
 }
 
-/* line 55, ../scss/screen.scss */
+/* line 56, ../scss/screen.scss */
 .toggle_check {
   display: none;
   max-height: 120px;
 }
 
-/* line 59, ../scss/screen.scss */
+/* line 60, ../scss/screen.scss */
 .toggle_check:checked + .edit_part {
   max-height: 500px;
 }
 
-/* line 63, ../scss/screen.scss */
+/* line 64, ../scss/screen.scss */
 .room_edit_name {
   font-weight: 900;
   color: #555;
 }
 
-/* line 68, ../scss/screen.scss */
+/* line 69, ../scss/screen.scss */
 .room_edit {
   border: solid 1px #eee;
   padding: 10px;
   border-left: solid 4px #ccc;
 }
-/* line 73, ../scss/screen.scss */
+/* line 74, ../scss/screen.scss */
 .room_edit .room_tag {
   display: block;
   cursor: pointer;
 }
-/* line 77, ../scss/screen.scss */
+/* line 78, ../scss/screen.scss */
 .room_edit label {
   margin: 0px;
 }
-/* line 80, ../scss/screen.scss */
+/* line 81, ../scss/screen.scss */
 .room_edit .edit_part {
   max-height: 0px;
   overflow: hidden;
 }
-/* line 84, ../scss/screen.scss */
+/* line 85, ../scss/screen.scss */
 .room_edit .delete_btn {
   float: right;
   cursor: pointer;
   font-size: 20px;
   width: 20px;
 }
-/* line 89, ../scss/screen.scss */
+/* line 90, ../scss/screen.scss */
 .room_edit .delete_btn:hover {
   color: #DB4343;
 }
 
-/* line 95, ../scss/screen.scss */
+/* line 96, ../scss/screen.scss */
 .add_room {
   cursor: pointer;
   font-size: 18px;
 }
-/* line 98, ../scss/screen.scss */
+/* line 99, ../scss/screen.scss */
 .add_room:hover {
   background-color: #555;
   color: #fff;
 }
 
-/* line 104, ../scss/screen.scss */
+/* line 105, ../scss/screen.scss */
 .room_container {
   box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.1);
   margin: 20px 5px;
   cursor: pointer;
   height: 300px;
 }
-/* line 109, ../scss/screen.scss */
+/* line 110, ../scss/screen.scss */
 .room_container:hover {
   box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.2);
 }
-/* line 111, ../scss/screen.scss */
+/* line 112, ../scss/screen.scss */
 .room_container:hover .cover {
   background-size: 110%;
 }
-/* line 114, ../scss/screen.scss */
+/* line 115, ../scss/screen.scss */
 .room_container:hover .delete_img_btn {
   opacity: 1;
 }
-/* line 119, ../scss/screen.scss */
+/* line 120, ../scss/screen.scss */
 .room_container .delete_img_btn {
   color: #fff;
   position: absolute;
@@ -150,11 +151,11 @@ body {
   opacity: 0;
   transition: 0.5s;
 }
-/* line 127, ../scss/screen.scss */
+/* line 128, ../scss/screen.scss */
 .room_container .delete_img_btn:hover {
   color: #DB4343;
 }
-/* line 132, ../scss/screen.scss */
+/* line 133, ../scss/screen.scss */
 .room_container .cover {
   position: relative;
   height: 150px;
@@ -163,7 +164,7 @@ body {
   background-position: center center;
   transition: 0.5s;
 }
-/* line 140, ../scss/screen.scss */
+/* line 141, ../scss/screen.scss */
 .room_container .cover h3 {
   position: absolute;
   bottom: 10px;
@@ -173,45 +174,45 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* line 151, ../scss/screen.scss */
+/* line 152, ../scss/screen.scss */
 .info {
   padding: 10px;
 }
 
 @media screen and (max-width: 767px) {
-  /* line 157, ../scss/screen.scss */
+  /* line 158, ../scss/screen.scss */
   .info .icons {
     display: block;
     padding-left: 0px;
   }
-  /* line 161, ../scss/screen.scss */
+  /* line 162, ../scss/screen.scss */
   .info i {
     font-size: 14px;
     display: inline-block;
   }
-  /* line 165, ../scss/screen.scss */
+  /* line 166, ../scss/screen.scss */
   .info h3, .info s, .info span {
     font-size: 18px;
   }
 }
-/* line 171, ../scss/screen.scss */
+/* line 172, ../scss/screen.scss */
 .icons {
   padding-left: 5px;
   vertical-align: middle;
 }
-/* line 174, ../scss/screen.scss */
+/* line 175, ../scss/screen.scss */
 .icons i {
   margin-left: 5px;
   color: #777;
 }
 
-/* line 180, ../scss/screen.scss */
+/* line 181, ../scss/screen.scss */
 .final_price {
   float: right;
   font-size: 24px;
   color: #DB4343;
 }
-/* line 184, ../scss/screen.scss */
+/* line 185, ../scss/screen.scss */
 .final_price:after {
   content: "$";
 }

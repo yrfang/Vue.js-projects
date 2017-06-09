@@ -32,8 +32,8 @@ html(lang='en')
             br
             h3 房型總數 (共{{rooms.length}}間)
             hr
-            h3 房間編輯{{edit_id+1}}
-            select.form-control.select_scroll(v-model="edit_id")
+            h3 房間編輯{{id+1}}
+            select.form-control.select_scroll(v-model="id")
               option(v-for="(room, id) in rooms", :value="id") {{room.name}}
             hr
             .form-group.room_edit(v-for='(room, id) in rooms')
