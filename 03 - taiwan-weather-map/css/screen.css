@@ -1,0 +1,134 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 11, ../scss/screen.scss */
+* {
+  font-family: 'Fjalla One';
+}
+
+/* line 15, ../scss/screen.scss */
+svg {
+  margin: 70px 20px;
+  height: 80vh;
+  width: 60vw;
+  cursor: pointer;
+}
+
+/* line 22, ../scss/screen.scss */
+body {
+  background-color: #222;
+}
+
+/* line 26, ../scss/screen.scss */
+path {
+  stroke: white;
+  fill: transparent;
+  transition: 0.5s;
+}
+/* line 30, ../scss/screen.scss */
+path:hover {
+  fill: #B99362;
+  transform: translate(-3px, -3px);
+}
+
+/* line 36, ../scss/screen.scss */
+.title_area {
+  position: absolute;
+  left: 55vw;
+  top: 130px;
+  color: white;
+  font-size: 40px;
+}
+
+/* line 44, ../scss/screen.scss */
+hr {
+  width: 100px;
+  margin-left: 0px;
+  border: none;
+  border-bottom: solid 3px #888;
+}
+
+/* line 52, ../scss/screen.scss */
+.forcast h2, .forcast h4, .forcast h5 {
+  margin: 0px;
+  margin: 5px;
+}
+/* line 56, ../scss/screen.scss */
+.forcast h2 {
+  margin-top: 20px;
+}
+/* line 59, ../scss/screen.scss */
+.forcast h5 {
+  color: #B99362;
+}
+
+/* line 64, ../scss/screen.scss */
+.fa.fa-cloud {
+  color: #B99362;
+}

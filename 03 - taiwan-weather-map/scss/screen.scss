@@ -1,0 +1,66 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@charset "UTF-8";
+
+$color_gold: #B99362;
+
+* {
+  font-family: 'Fjalla One';
+}
+
+svg {
+  margin: 70px 20px;
+  height: 80vh;
+  width: 60vw;
+  cursor: pointer;
+}
+
+body {
+  background-color: #222;
+}
+
+path {
+  stroke: white;
+  fill: transparent;
+  transition: 0.5s;
+  &:hover {
+    fill: $color_gold;
+    transform: translate(-3px, -3px);
+  }
+}
+
+.title_area {
+  position: absolute;
+  left: 55vw;
+  top: 130px;
+  color: white;
+  font-size: 40px;
+}
+
+hr {
+  width: 100px;
+  margin-left: 0px;
+  border: none;
+  border-bottom: solid 3px #888;
+}
+
+.forcast {
+  h2,h4,h5 {
+    margin: 0px;
+    margin: 5px;
+  }
+  h2 {
+    margin-top: 20px;
+  }
+  h5 {
+    color: $color_gold;
+  }
+}
+
+.fa.fa-cloud {
+  color: $color_gold;
+}
