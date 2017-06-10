@@ -1,0 +1,32 @@
+//output:index.html
+
+doctype html
+head
+  meta(charset="utf-8")
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+  link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900")
+  link(rel="stylesheet", href="css/screen.css")
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+  script(src="https://unpkg.com/vue/dist/vue.js")
+  script(src="slideshow.js")
+  title Slogan Slideshow
+body
+  #app
+    .postarea
+      .posts(:style="computed_left")
+        .postbox(v-for="(w,id) in works",
+                :class="{cur_item:id==now_index}")
+          .cover(:style="bg_css(w.cover)")
+            .infos
+              h1 {{w.title}}
+              h5 {{w.description}}
+    .control_left(@click="delta(-1)")
+      i.fa.fa-angle-left
+    .control_right(@click="delta(1)")
+      i.fa.fa-angle-right
+      
+  

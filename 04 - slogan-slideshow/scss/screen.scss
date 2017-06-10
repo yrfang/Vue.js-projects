@@ -1,0 +1,153 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+// @import "compass/reset";
+@charset "UTF-8";
+
+* {
+  // border: solid 1px #000;
+  font-family: 微軟正黑體;
+}
+
+//flexbox置中
+@mixin flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//設定大小
+@mixin size($w,$h: $w) {
+  width: $w;
+  height: $h;
+}
+
+@mixin trans($t:0.5s, $td:0s) {
+  transition: $t $td;
+}
+
+//填滿畫面多於隱藏
+html,body {
+  @include size(100%);
+  overflow: hidden;
+  background-color: #1c1c1c;
+  transition: 0.5s;
+}
+
+#app {
+  @include size(100%);
+  @include flex_center;
+}
+
+.postarea {
+  @include size(930px,250px);
+  white-space: nowrap;
+}
+
+.posts {
+  height: 100%;
+  position: relative;
+  transition: 0.5s;
+}
+
+.postbox {
+  display: inline-block;
+  height: 100%;
+}
+
+.cover {
+  @include size(330px,100%);
+  @include flex_center;
+  @include trans;
+  margin-left: 300px; //設定左右margin幾開其他卡片
+  margin-right: 300px;
+  background-size: cover;
+  background-image: center center;
+  transition: 0.5s;
+
+  &:hover {
+    @include size(340px,110%);
+    .infos {
+      transform: translateX(-220px) translateY(-10px);
+    }
+  }
+}
+
+.infos {
+  @include trans;
+  color: #fff;
+  transform: translateX(-200px);
+  text-shadow: 0px 0px 30px rbga(black, 0.3);
+  letter-spacing: 1px;
+
+  * {
+    margin: 0px;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+    font-size: 50px;
+    font-weight: 400px;
+  }
+
+  h5 {
+    background-color: #fff;
+    color: #000;
+    padding: 4px 12px;
+    font-size: 20px;
+    font-weight: 300;
+    box-shadow: 0px 0px 30px rbga(black, 0.3);
+  }
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;
+      transform: translateX(30px);
+      filter: saturate(0%);}
+  100% {opacity: 1;
+      transform: translateX(0px);
+      filter: saturate(100%);}
+}
+
+@keyframes sliceIn {
+  0% {transform: translateX(-50px);}
+  100% {transform: translateX(0px);}
+}
+
+.cur_item {
+  .cover {
+    animation: fadeIn 1s both;
+  }
+  .infos {
+    h5 {
+      animation: sliceIn 1s 0.1s ease;
+    }
+  }
+}
+
+.control_left, .control_right {
+  @include size(40px);
+  @include flex_center;
+  @include trans;
+  border: solid 1px white;
+  position: fixed;
+  border-radius: 50%;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+.control_left {
+  left: 50px;
+}
+
+.control_right {
+  right: 50px;
+}

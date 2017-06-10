@@ -1,0 +1,159 @@
+@charset "UTF-8";
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 9, ../scss/screen.scss */
+* {
+  font-family: 微軟正黑體;
+}
+
+/* line 32, ../scss/screen.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #1c1c1c;
+  transition: 0.5s;
+}
+
+/* line 39, ../scss/screen.scss */
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 44, ../scss/screen.scss */
+.postarea {
+  width: 930px;
+  height: 250px;
+  white-space: nowrap;
+}
+
+/* line 49, ../scss/screen.scss */
+.posts {
+  height: 100%;
+  position: relative;
+  transition: 0.5s;
+}
+
+/* line 55, ../scss/screen.scss */
+.postbox {
+  display: inline-block;
+  height: 100%;
+}
+
+/* line 60, ../scss/screen.scss */
+.cover {
+  width: 330px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s 0s;
+  margin-left: 300px;
+  margin-right: 300px;
+  background-size: cover;
+  background-image: center center;
+  transition: 0.5s;
+}
+/* line 70, ../scss/screen.scss */
+.cover:hover {
+  width: 340px;
+  height: 110%;
+}
+/* line 72, ../scss/screen.scss */
+.cover:hover .infos {
+  transform: translateX(-220px) translateY(-10px);
+}
+
+/* line 78, ../scss/screen.scss */
+.infos {
+  transition: 0.5s 0s;
+  color: #fff;
+  transform: translateX(-200px);
+  text-shadow: 0px 0px 30px rbga(black, 0.3);
+  letter-spacing: 1px;
+}
+/* line 85, ../scss/screen.scss */
+.infos * {
+  margin: 0px;
+}
+/* line 89, ../scss/screen.scss */
+.infos h1 {
+  margin-bottom: 10px;
+  font-size: 50px;
+  font-weight: 400px;
+}
+/* line 95, ../scss/screen.scss */
+.infos h5 {
+  background-color: #fff;
+  color: #000;
+  padding: 4px 12px;
+  font-size: 20px;
+  font-weight: 300;
+  box-shadow: 0px 0px 30px rbga(black, 0.3);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+    filter: saturate(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+    filter: saturate(100%);
+  }
+}
+@keyframes sliceIn {
+  0% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+/* line 120, ../scss/screen.scss */
+.cur_item .cover {
+  animation: fadeIn 1s both;
+}
+/* line 124, ../scss/screen.scss */
+.cur_item .infos h5 {
+  animation: sliceIn 1s 0.1s ease;
+}
+
+/* line 130, ../scss/screen.scss */
+.control_left, .control_right {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s 0s;
+  border: solid 1px white;
+  position: fixed;
+  border-radius: 50%;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+/* line 141, ../scss/screen.scss */
+.control_left:hover, .control_right:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* line 147, ../scss/screen.scss */
+.control_left {
+  left: 50px;
+}
+
+/* line 151, ../scss/screen.scss */
+.control_right {
+  right: 50px;
+}
