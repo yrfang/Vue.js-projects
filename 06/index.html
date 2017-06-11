@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head></head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
+<link rel="stylesheet" href="css/screen.css">
+<title>iOS月曆</title>
+<body>
+  <div id="app">
+    <div class="phone">
+      <div class="calender">
+        <div class="head">
+          <div v-for="tag in tags" class="tag">{{tag}}</div>
+        </div>
+        <div class="body">
+          <div v-for="day in days" class="daybox active"> 
+            <div class="infos">
+              <div class="number">{{day.number}}</div>
+              <div class="lunar">初一</div>
+            </div>
+            <div :class="{has_event: day.events.length&gt;0}" class="eventdot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="calender.js"></script>
+</body>
