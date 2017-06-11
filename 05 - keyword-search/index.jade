@@ -1,0 +1,42 @@
+//output:index.html
+
+doctype html
+head
+  meta(charset="utf-8")
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+  link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900")
+  link(rel="stylesheet", href="css/screen.css")
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+  script(src="https://unpkg.com/vue/dist/vue.js")
+  script(src="keyword-search.js")
+  title 關鍵字搜尋功能
+body
+  #app.container
+    .row
+      .col-sm-12
+        h2 Vue.js實作動態搜尋功能
+        hr
+    .row.form-group.keyword
+      .col-sm-1
+        label 關鍵字
+      .col-sm-11
+        input.form-control(v-model="filter" placeholder="輸入過濾字串")
+      .col-sm-12
+        h4 總共有 {{filtered_post.length}} 篇文章
+    .row
+      postbox(v-for="p in filtered_post",
+              v-bind:post="p",
+              v-bind:key="p.id")
+  
+  template#post
+    .postbox.col-sm-4
+      .postbox_inner
+        .img(:style="covercss")
+        .infos
+          h6(v-html="post.name_short")
+          h4(v-html="post.title")
+          p(v-html="post.description")
+      

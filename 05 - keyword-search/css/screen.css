@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 9, ../scss/screen.scss */
+* {
+  font-family: 微軟正黑體;
+}
+
+/* line 14, ../scss/screen.scss */
+html, body {
+  padding: 20px 10px;
+}
+
+/* line 22, ../scss/screen.scss */
+.postbox {
+  padding: 10px;
+  margin-bottom: 30px;
+}
+/* line 26, ../scss/screen.scss */
+.postbox:hover .img {
+  background-size: 120% auto;
+}
+
+/* line 32, ../scss/screen.scss */
+.postbox_inner {
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px;
+  cursor: pointer;
+}
+/* line 38, ../scss/screen.scss */
+.postbox_inner .img {
+  height: 170px;
+  background-size: 110% auto;
+  background-position: center center;
+  transition: 0.5s;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: -10px;
+}
+/* line 48, ../scss/screen.scss */
+.postbox_inner .infos {
+  padding: 10px;
+}
+/* line 52, ../scss/screen.scss */
+.postbox_inner p {
+  font-size: 15px;
+  line-height: 24px;
+}
+
+/* line 58, ../scss/screen.scss */
+.highlight {
+  background-color: #f24;
+  color: #fff;
+  padding: 0px 5px;
+}

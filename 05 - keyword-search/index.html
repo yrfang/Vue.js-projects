@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
+  <link rel="stylesheet" href="css/screen.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="keyword-search.js"></script>
+  <title>關鍵字搜尋功能</title>
+</head>
+<body>
+  <div id="app" class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Vue.js實作動態搜尋功能</h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row form-group keyword">
+      <div class="col-sm-1">
+        <label>關鍵字</label>
+      </div>
+      <div class="col-sm-11">
+        <input v-model="filter" placeholder="輸入過濾字串" class="form-control">
+      </div>
+      <div class="col-sm-12">
+        <h4>總共有 {{filtered_post.length}} 篇文章</h4>
+      </div>
+    </div>
+    <div class="row">
+      <postbox v-for="p in filtered_post" v-bind:post="p" v-bind:key="p.id"></postbox>
+    </div>
+  </div>
+  <template id="post">
+    <div class="postbox col-sm-4">
+      <div class="postbox_inner">
+        <div :style="covercss" class="img"></div>
+        <div class="infos">
+          <h6 v-html="post.name_short"></h6>
+          <h4 v-html="post.title"></h4>
+          <p v-html="post.description"></p>
+        </div>
+      </div>
+    </div>
+  </template>
+</body>
