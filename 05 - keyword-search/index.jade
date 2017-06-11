@@ -19,24 +19,26 @@ body
       .col-sm-12
         h2 Vue.js實作動態搜尋功能
         hr
-    .row.form-group.keyword
-      .col-sm-1
+    .row.form-group
+      .col-sm-1.filter_line
         label 關鍵字
       .col-sm-11
-        input.form-control(v-model="filter" placeholder="輸入過濾字串")
+        input.form-control.filter_input(v-model="filter" placeholder="輸入過濾字串")
+        br
       .col-sm-12
         h4 總共有 {{filtered_post.length}} 篇文章
     .row
-      postbox(v-for="p in filtered_post",
-              v-bind:post="p",
-              v-bind:key="p.id")
+      postbox.col-md-6.col-lg-4(v-for="p in filtered_post",
+                                v-bind:post="p",
+                                v-bind:catas="catas",
+                                v-bind:key="p.id")
   
   template#post
-    .postbox.col-sm-4
+    .postbox
       .postbox_inner
         .img(:style="covercss")
         .infos
-          h6(v-html="post.name_short")
+          h6(v-html="'['+cata_name+'] '+ post.name_short")
           h4(v-html="post.title")
-          p(v-html="post.description")
+          p(v-html="post.description.toString(0,30)")
       

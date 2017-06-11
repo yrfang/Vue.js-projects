@@ -20,29 +20,29 @@
         <hr>
       </div>
     </div>
-    <div class="row form-group keyword">
-      <div class="col-sm-1">
+    <div class="row form-group">
+      <div class="col-sm-1 filter_line">
         <label>關鍵字</label>
       </div>
       <div class="col-sm-11">
-        <input v-model="filter" placeholder="輸入過濾字串" class="form-control">
+        <input v-model="filter" placeholder="輸入過濾字串" class="form-control filter_input"><br>
       </div>
       <div class="col-sm-12">
         <h4>總共有 {{filtered_post.length}} 篇文章</h4>
       </div>
     </div>
     <div class="row">
-      <postbox v-for="p in filtered_post" v-bind:post="p" v-bind:key="p.id"></postbox>
+      <postbox v-for="p in filtered_post" v-bind:post="p" v-bind:catas="catas" v-bind:key="p.id" class="col-md-6 col-lg-4"></postbox>
     </div>
   </div>
   <template id="post">
-    <div class="postbox col-sm-4">
+    <div class="postbox">
       <div class="postbox_inner">
         <div :style="covercss" class="img"></div>
         <div class="infos">
-          <h6 v-html="post.name_short"></h6>
+          <h6 v-html="'['+cata_name+'] '+ post.name_short"></h6>
           <h4 v-html="post.title"></h4>
-          <p v-html="post.description"></p>
+          <p v-html="post.description.toString(0,30)"></p>
         </div>
       </div>
     </div>

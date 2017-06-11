@@ -4,7 +4,10 @@ $(document).ready(function() {
 
   Vue.component("postbox",{
     template: "#post",
-    props: ["post"],
+    props: ["post","catas"],
+    data (){
+      return {};
+    },
     computed: {
       coverurl () {
         if (this.post.cover[0]=="/") {
@@ -15,6 +18,9 @@ $(document).ready(function() {
       },
       covercss () {
         return {'background-image': 'url('+this.coverurl+')'};
+      },
+      cata_name(){
+        return this.catas.filter((cata)=>(cata.tag==this.post.tag))[0].name;
       }
     }
   });
@@ -23,7 +29,7 @@ $(document).ready(function() {
     el: "#app",
     data: {
       posts: [],
-      cats: [],
+      catas: [],
       filter: ""
     },
     mounted: function() {
@@ -34,7 +40,8 @@ $(document).ready(function() {
         // console.log(vobj.posts[0]['title']);
       });
       $.get(cat_api_url).then(function(res){
-        vobj.cats=JSON.parse(res);
+        vobj.catas=JSON.parse(res);
+        // console.log(vobj.catas);
       });
     },
     computed: {
@@ -71,7 +78,7 @@ $(document).ready(function() {
             // console.log(match_word);
 
             if (match_word) {
-              template_post[now_tag] = template_post[now_tag].replace(new RegExp(vobj.filter, "i"), "<span class=highlight>" + match_word + "</span>");
+              template_post[now_tag] = template_post[now_tag].replace(regex, "<span class=highlight>" + match_word + "</span>");
             }
           });
           return template_post;
