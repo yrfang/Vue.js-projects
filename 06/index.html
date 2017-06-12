@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
 <link rel="stylesheet" href="css/screen.css">
-<title>iOS月曆</title>
+<title>iOS Calender</title>
 <body>
   <div id="app">
     <div class="phone">
@@ -15,10 +15,10 @@
           <div v-for="tag in tags" class="tag">{{tag}}</div>
         </div>
         <div class="body">
-          <div v-for="day in days" class="daybox active"> 
+          <div v-for="(day,day_id) in days" :class="day_id===selected_day?'active':''" @click="selected_day=day_id" :style="get_pan(day_id)" class="daybox">
             <div class="infos">
               <div class="number">{{day.number}}</div>
-              <div class="lunar">初一</div>
+              <div class="lunar">{{lunar(day.number)}}</div>
             </div>
             <div :class="{has_event: day.events.length&gt;0}" class="eventdot"></div>
           </div>
@@ -29,5 +29,5 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="calender.js"></script>
+  <script src="calendar.js"></script>
 </body>

@@ -8,6 +8,7 @@
 
 * {
   border: solid 1px #000;
+  font-family: 微軟正黑體;
 }
 
 @mixin size($w,$h:$w) {
@@ -63,12 +64,14 @@ html,body,#app {
   display: flex;
   flex-direction: column; //垂直的排列
   align-items: center; //主軸線上(垂直)的置中
+  cursor: pointer;
 
   &.active {
     .infos {
       border-radius: 50%;
       background-color: #222;
       color: #fff;
+      z-index: 5;
     }
   }
 }
@@ -95,8 +98,8 @@ html,body,#app {
   background-color: #f24;
   border-radius: 50%;
   margin-top: 5px;
-  opacity: 0.5;
-  &:has_event {
+  opacity: 0;
+  &.has_event {
     opacity: 1; //動態綁定css屬性 //day.events.length>0為判斷條件
   }
 }

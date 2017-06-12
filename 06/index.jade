@@ -8,7 +8,7 @@ link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css
 link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
 link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900")
 link(rel="stylesheet", href="css/screen.css")
-title iOS月曆
+title iOS Calender
 body
   #app
     .phone
@@ -16,10 +16,14 @@ body
         .head
           .tag(v-for="tag in tags") {{tag}}
         .body
-          .daybox.active(v-for="day in days") 
+          .daybox(v-for="(day,day_id) in days",
+                  :class="day_id===selected_day?'active':''",
+                  @click="selected_day=day_id",
+                  :style="get_pan(day_id)")
+            //- .test {{day.number}}
             .infos
               .number {{day.number}}
-              .lunar 初一
+              .lunar {{lunar(day.number)}}
             .eventdot(:class="{has_event: day.events.length>0}")
         
 
@@ -27,5 +31,5 @@ body
   script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
   script(src="https://unpkg.com/vue/dist/vue.js")
-  script(src="calender.js")
+  script(src="calendar.js")
         
