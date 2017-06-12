@@ -8,7 +8,7 @@ link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css
 link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
 link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900")
 link(rel="stylesheet", href="css/screen.css")
-title iOS Calender
+title iOS Calendar
 body
   #app
     .phone
@@ -25,6 +25,30 @@ body
               .number {{day.number}}
               .lunar {{lunar(day.number)}}
             .eventdot(:class="{has_event: day.events.length>0}")
+        .todos(tag="ul", name="fade", mode="out-in")
+          .items(v-for="(todo, todo_id) in now_events",
+                 :key="todo",
+                 :class="'type_'+todo.type",
+                 v-if="todo")
+            .time {{todo.time}}
+            .title {{todo.title}}
+            .remove_btn(@click="now_events.splice(todo_id,1)") x
+    .form
+      input(name="title", 
+            placeholder="事件標題", 
+            v-model="new_item.title")
+      input(name="title", 
+            placeholder="時間", 
+            v-model="new_item.time")
+      select(name="type", 
+            placeholder="種類",
+            v-model="new_item.type")
+        option(value="work") 工作
+        option(value="important") 重要
+        option(value="happy") 娛樂
+      button(type="submit", 
+            @click="add_item") 加入
+        
         
 
 

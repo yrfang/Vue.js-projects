@@ -37,6 +37,12 @@ html,body,#app {
   overflow: hidden;
 }
 
+.head,.body {
+  background-color: #f3f3f3;
+  border-bottom: solid 1px rgba(#000,0.1);
+  padding-bottom: 5px;
+}
+
 .head {
   display: flex;
   padding-top: 50px;
@@ -95,11 +101,80 @@ html,body,#app {
 
 .eventdot {
   @include size(6px);
-  background-color: #f24;
+  background-color: #aaa;
   border-radius: 50%;
   margin-top: 5px;
   opacity: 0;
   &.has_event {
     opacity: 1; //動態綁定css屬性 //day.events.length>0為判斷條件
   }
+}
+
+.todos {
+  overflow-y: scroll;
+  height: calc(560px - 383px);
+}
+
+.items {
+  display: flex;
+  padding: 5px 10px;
+  border-bottom: solid 1px rgba(#000, 0.1);
+  height: 40px;
+  position: relative;
+
+  &:hover {
+    background-color: #fafafa;
+    .remove_btn {
+      opacity: 1;
+    }
+  }
+
+  .time,.title,.remove_btn {
+    padding: 5px 15px;
+  }
+
+  .time {
+    width: 65px;
+    border-right: solid 2px;
+    border-color: #3ca9f2;
+  }
+
+  .remove_btn {
+    position: absolute;
+    padding-right: 0px;
+    right: 10px;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  &.type_work {
+    .time {
+      border-color: #57ef34;}
+    }
+  &.type_important{
+    .time {
+      border-color: #3ca9f2; }
+    }
+  &.type_school{
+    .time {
+      border-color: #f9bf59; }
+    }
+}
+
+.form {
+  margin: 20px;
+
+  input {
+    outline: none;
+    padding: 3px;
+    border-radius: 5px;
+  }
+}
+
+.fade-enter-active,.fade-leave-active {
+  transition: 0.5s;
+}
+.fade-enter,.fade-leave-to {
+  opacity: 0;
 }
