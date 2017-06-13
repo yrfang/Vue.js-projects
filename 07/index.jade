@@ -1,0 +1,43 @@
+//output:index.html
+
+doctype
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900")
+    link(rel="stylesheet", href="css/screen.css")
+    title Vue.js Editor
+  body
+    #app
+      .container
+        .row
+          .col-sm-12
+            h1 Vue.js Simple Editor
+        .row
+          .col-sm-12
+            button.btn_new_page + New Content to Page
+          .col-sm-12.editor_container
+            .outer_container
+              .upper_editor
+                button.btn(type="button")
+                  .fa.fa-bold
+                button.btn(type="button")
+                  .fa.fa-italic
+                button.btn(type="button")
+                  .fa.fa-underline
+                button.btn(type="button")
+                  .fa.fa-font
+                  
+              textarea.form-control.bottom_editor
+      
+      
+    //- https://codepen.io/nDav/pen/rOOwxG
+    //- file:///C:/Users/lindafang/Documents/projects/Vue.js-projects/07/example/index.html
+    
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    script(src="https://unpkg.com/vue/dist/vue.js")
+    script(src="editor.js")

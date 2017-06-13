@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
+    <link rel="stylesheet" href="css/screen.css">
+    <title>Vue.js Editor</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1>Vue.js Simple Editor</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <button class="btn_new_page">+ New Content to Page</button>
+          </div>
+          <div class="col-sm-12 editor_container">
+            <div class="outer_container">
+              <div class="upper_editor">
+                <button type="button" class="btn">
+                  <div class="fa fa-bold"></div>
+                </button>
+                <button type="button" class="btn">
+                  <div class="fa fa-italic"></div>
+                </button>
+                <button type="button" class="btn">
+                  <div class="fa fa-underline"></div>
+                </button>
+                <button type="button" class="btn">
+                  <div class="fa fa-font"></div>
+                </button>
+              </div>
+              <textarea class="form-control bottom_editor"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="editor.js"></script>
+  </body>
+</html>

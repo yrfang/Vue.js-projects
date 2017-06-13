@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 9, ../scss/screen.scss */
+* {
+  font-family: 'Roboto', sans-serif, 微軟正黑體;
+  border: solid 1px #000;
+}
+
+/* line 14, ../scss/screen.scss */
+.btn_new_page {
+  margin: 10px;
+  padding: 5px 7px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #f1f1f1;
+  color: #000;
+}
+/* line 22, ../scss/screen.scss */
+.btn_new_page:hover {
+  background-color: #585858;
+  color: #fff;
+}
+
+/* line 28, ../scss/screen.scss */
+.outer_container {
+  width: 100%;
+}
+/* line 31, ../scss/screen.scss */
+.outer_container .upper_editor {
+  height: initial;
+}
+/* line 35, ../scss/screen.scss */
+.outer_container textarea.bottom_editor {
+  height: 200px;
+  min-height: 200px;
+  width: 100%;
+  max-width: 100%;
+  outline: none;
+  border: none;
+}
+
+/* line 45, ../scss/screen.scss */
+.upper_editor {
+  display: flex;
+  align-items: center;
+}
+/* line 50, ../scss/screen.scss */
+.upper_editor .btn {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  margin-right: 3px;
+}
