@@ -1,0 +1,35 @@
+//output:index.html
+
+doctype html
+head
+  meta(charset="utf-8")
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+  link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900")
+  link(rel="stylesheet", href="css/screen.css")
+  title Country's Dial Code Search
+body
+  #app.container
+    .row
+      .col-sm-12
+        h1 快速搜尋世界國家撥打代碼
+      .col-sm-12
+        //Create a binding between the searchString model and the text field
+        input.form-control.search_input(type="text", 
+              placeholder="Country name / Dial code",
+              v-model="searchString")
+      .col-sm-12.search_list
+        .search_country(v-for="country in filterCountries")
+          span.name {{country.name}}
+          span.code ({{country.dial_code}})
+          span.dial_code {{country.code}}
+      
+      
+
+
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+  script(src="https://unpkg.com/vue/dist/vue.js")
+  script(src="photo-keyword.js")
+  
