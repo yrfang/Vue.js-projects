@@ -1,16 +1,19 @@
+@charset "UTF-8";
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
-// @import "compass/reset";
-@charset "UTF-8";
-
+/* line 9, ../scss/screen.scss */
 * {
   font-family: 微軟正黑體;
-  // border: solid 1px #000;
 }
 
+/* line 14, ../scss/screen.scss */
+h1 {
+  font-weight: bold;
+}
+
+/* line 18, ../scss/screen.scss */
 .container {
   position: absolute;
   top: 50px;
@@ -19,6 +22,7 @@
   width: 60%;
 }
 
+/* line 26, ../scss/screen.scss */
 .search_input {
   outline: none;
   margin: 10px auto;
@@ -26,36 +30,37 @@
   padding: 5px;
   padding-left: 50px;
   font-size: 18px;
-  background-image: url(https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png);
+  background-image: url("https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png");
   background-size: 30px 30px;
   background-repeat: no-repeat;
   background-position: 10px center;
 }
 
+/* line 39, ../scss/screen.scss */
 .search_country {
   margin: 5px auto;
   padding: 15px 10px;
   border-bottom: solid 1px #f1f1f1;
   font-size: 16px;
   position: relative;
-
-  .name {
-    color: #fff;
-    background-color: rgba(#5d86f5,0.8);
-    padding: 3px;
-    font-weight: bold;
-    margin-right: 5px;
-  }
-
-  .dial_cod {
-    color: #333;
-  }
-
-  .code {
-    position: absolute;
-    right: 15px;
-    padding: 3px;
-    color: #fff;
-    background-color: rgba(#5d86f5,0.8);
-  }
+}
+/* line 46, ../scss/screen.scss */
+.search_country .name {
+  color: #fff;
+  background-color: rgba(255, 84, 20, 0.8);
+  padding: 3px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+/* line 54, ../scss/screen.scss */
+.search_country .dial_cod {
+  color: #333;
+}
+/* line 58, ../scss/screen.scss */
+.search_country .code {
+  font-weight: bold;
+  position: absolute;
+  right: 15px;
+  padding: 3px;
+  color: #ff5414;
 }

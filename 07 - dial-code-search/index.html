@@ -6,17 +6,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
   <link rel="stylesheet" href="css/screen.css">
-  <title>Country's Dial Code Search</title>
+  <title>Dial Code Search</title>
 </head>
 <body>
   <div id="app" class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h1>快速搜尋世界國家撥打代碼</h1>
+        <h1>World's Dial Code Search by Vue.js</h1>
       </div>
       <div class="col-sm-12">
         <!--Create a binding between the searchString model and the text field-->
-        <input type="text" placeholder="Country name / Dial code" v-model="searchString" class="form-control search_input">
+        <input type="text" placeholder="Enter the country name" v-model="searchString" class="form-control search_input">
       </div>
       <div class="col-sm-12 search_list">
         <div v-for="country in filterCountries" class="search_country"><span class="name">{{country.name}}</span><span class="code">({{country.dial_code}})</span><span class="dial_code">{{country.code}}</span></div>
@@ -26,5 +26,5 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="photo-keyword.js"></script>
+  <script src="search.js"></script>
 </body>
