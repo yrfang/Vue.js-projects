@@ -1,0 +1,118 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 9, ../scss/screen.scss */
+* {
+  font-family: "Open Sans", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+/* Hide un-compiled mustache bindings
+until the Vue instance is ready */
+/* line 20, ../scss/screen.scss */
+[v-cloak] {
+  display: none;
+}
+
+/* line 24, ../scss/screen.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+/* line 28, ../scss/screen.scss */
+body {
+  font-size: 16px;
+  color: #5e5e5e;
+  text-align: center;
+}
+
+/* line 37, ../scss/screen.scss */
+.bar {
+  background-color: #1f658f;
+  background-image: linear-gradien(top, #1f658f, #386293);
+  box-shadow: 0px 1px 1px #ccc;
+  border-radius: 2px;
+  width: 60%;
+  height: initial;
+  padding: 10px;
+  margin: 45px auto 25px;
+  position: relative;
+  text-align: right;
+  line-height: 1;
+}
+/* line 50, ../scss/screen.scss */
+.bar .fa.fa-list, .bar .fa.fa-table {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 30px;
+  color: #fff;
+  background-color: #4775aa;
+  margin-right: 5px;
+  padding: 3px;
+}
+
+/* line 62, ../scss/screen.scss */
+.icon.active .fa.fa-list, .icon.active .fa.fa-table {
+  background-color: #13d493;
+}
+
+/* line 70, ../scss/screen.scss */
+ul.list {
+  list-style: none;
+  width: 60%;
+  text-align: left;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* line 80, ../scss/screen.scss */
+ul.list li {
+  border-bottom: solid 1px #ddd;
+  padding: 10px;
+}
+/* line 86, ../scss/screen.scss */
+ul.list img {
+  width: 120px;
+  height: 120px;
+  display: inline-block;
+  border: none;
+}
+/* line 93, ../scss/screen.scss */
+ul.list p {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 16px;
+  color: #636363;
+  vertical-align: top;
+  margin-left: 10px;
+  text-align: left;
+}
+
+/* line 106, ../scss/screen.scss */
+ul.grid {
+  list-style: none;
+  width: 60%;
+  margin: 0px auto;
+  padding: 5px 25px;
+  text-align: left;
+  position: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+/* line 116, ../scss/screen.scss */
+ul.grid li {
+  padding: 5px;
+  display: inline-block;
+  width: 50%;
+}
+/* line 122, ../scss/screen.scss */
+ul.grid img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  border: none;
+}
