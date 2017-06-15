@@ -9,17 +9,34 @@ html(lang='en')
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,900")
     link(rel="stylesheet", href="css/screen.css")
-    title V-Website Notes
+    title Keep Notes
   body
     #app.container
       .row
         .col-sm-12
-          h1.information V-Website Notes
+          h1.information Keep Your Notes
+      hr
       .row
         .col-sm-12
-          input.form-control.enter_input(placeholder="Enter your notes")
-          button.btn.btn-outline-info.submit_btn New
-      .row
+          button.btn.btn_new New
+        .col-sm-12
+          input.search(placeholder="Enter your notes")
+        .col-sm-12
+          .new_container
+            input.title(placeholder="Note Title")
+            textarea.text(placeholder="This is my note...")
+            button.btn.btn_save Save
+
+        .col-lg-4.col-md-6.col-sm-12.display(v-for="note in notes")
+          .display_container
+            h4 {{note.title}}
+            p {{note.text}}
+      
+      template#new_container
+      
+        
+        
+          
     
     
     

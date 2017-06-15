@@ -7,22 +7,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,900">
     <link rel="stylesheet" href="css/screen.css">
-    <title>V-Website Notes</title>
+    <title>Keep Notes</title>
   </head>
   <body>
     <div id="app" class="container">
       <div class="row">
         <div class="col-sm-12">
-          <h1 class="information">V-Website Notes</h1>
+          <h1 class="information">Keep Your Notes</h1>
         </div>
       </div>
+      <hr>
       <div class="row">
         <div class="col-sm-12">
-          <input placeholder="Enter your notes" class="form-control enter_input">
-          <button class="btn btn-outline-info submit_btn">New</button>
+          <button class="btn btn_new">New</button>
+        </div>
+        <div class="col-sm-12">
+          <input placeholder="Enter your notes" class="search">
+        </div>
+        <div class="col-sm-12">
+          <div class="new_container">
+            <input placeholder="Note Title" class="title">
+            <textarea placeholder="This is my note..." class="text"></textarea>
+            <button class="btn btn_save">Save</button>
+          </div>
+        </div>
+        <div v-for="note in notes" class="col-lg-4 col-md-6 col-sm-12 display">
+          <div class="display_container">
+            <h4>{{note.title}}</h4>
+            <p>{{note.text}}</p>
+          </div>
         </div>
       </div>
-      <div class="row"></div>
+      <template id="new_container"></template>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

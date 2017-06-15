@@ -6,9 +6,111 @@
 /* line 9, ../scss/screen.scss */
 * {
   font-family: 'Roboto', sans-serif, 微軟正黑體;
+  border: solid 1px;
 }
 
-/* line 13, ../scss/screen.scss */
+/* line 14, ../scss/screen.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
+}
+
+/* line 18, ../scss/screen.scss */
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: #ECF0F1;
+  color: #555;
+  font-size: 16px;
+  transition: 0.5s;
+}
+
+/* line 30, ../scss/screen.scss */
+.btn_new:hover {
+  background-color: #FCC29A;
+  color: #fff;
+}
+
+/* line 36, ../scss/screen.scss */
+.btn.btn_save {
+  display: block;
+  margin-top: 10px;
+}
+/* line 40, ../scss/screen.scss */
+.btn.btn_save:hover {
+  background-color: #fc9ae1;
+  color: #fff;
+}
+
+/* line 47, ../scss/screen.scss */
+.search {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 60%;
+  padding: 10px 15px;
+  outline: none;
+  border: solid 1px #999;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* line 58, ../scss/screen.scss */
+.new_container {
+  font-size: 16px;
+  margin-top: 10px;
+}
+/* line 64, ../scss/screen.scss */
+.new_container .title {
+  width: 90%;
+  padding: 10px 8px;
+  border: solid 1px #999;
+  outline: none;
+}
+/* line 71, ../scss/screen.scss */
+.new_container .text {
+  width: 90%;
+  height: 250px;
+  max-width: 90%;
+  padding: 10px 8px;
+  margin-top: 10px;
+  border: solid 1px #999;
+  outline: none;
+}
+
+/* line 82, ../scss/screen.scss */
+.display {
+  margin-top: 20px;
+}
+
+/* line 86, ../scss/screen.scss */
+.display_container {
+  background-color: #FCC29A;
+  height: 250px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  line-height: 2;
+  letter-spacing: 1.5px;
+  vertical-align: top;
+  text-align: justify;
+}
+/* line 99, ../scss/screen.scss */
+.display_container h4 {
+  width: 80%;
+  height: 60px;
+  margin: 0px;
+  padding-bottom: 10px;
+  line-height: 1.5;
+  color: #fff;
+  overflow: hidden;
+}
+/* line 109, ../scss/screen.scss */
+.display_container p {
+  width: 80%;
+  height: 150px;
+  font-size: 18px;
+  color: #333;
+  white-space: nowrap;
 }
