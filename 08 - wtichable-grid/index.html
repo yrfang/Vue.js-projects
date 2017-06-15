@@ -11,14 +11,14 @@
 <body>
   <div id="app">
     <div class="bar">
-      <div v-bind:class="layout==='list'?'active':''" @click="layout='list'" class="icon fa fa-list"></div>
-      <div v-bind:class="layout==='grid'?'active':''" @click="layout='grid'" class="icon fa fa-table"></div>
+      <div v-bind:class="{'active': layout=='list'}" @click="layout='list'" class="icon fa fa-list"></div>
+      <div v-bind:class="{'active': layout=='grid'}" @click="layout='grid'" class="icon fa fa-table"></div>
     </div>
     <ul v-if="layout=='grid'" class="grid">
-      <li v-for="a in articles"><img v-bind:src="a.image.large"></li>
+      <li v-for="a in articles"><img v-bind:src="a.image"></li>
     </ul>
     <ul v-if="layout=='list'" class="list">
-      <li v-for="a in articles"><img v-bind:src="a.image.large">
+      <li v-for="a in articles"><img v-bind:src="a.image">
         <p>{{a.title}}</p>
       </li>
     </ul>

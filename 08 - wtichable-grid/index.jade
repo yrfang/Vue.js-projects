@@ -12,15 +12,15 @@ head
 body
   #app
     .bar
-      .icon.fa.fa-list(v-bind:class="layout==='list'?'active':''", @click="layout='list'")
-      .icon.fa.fa-table(v-bind:class="layout==='grid'?'active':''", @click="layout='grid'")
+      .icon.fa.fa-list(v-bind:class="{'active': layout=='list'}", @click="layout='list'")
+      .icon.fa.fa-table(v-bind:class="{'active': layout=='grid'}", @click="layout='grid'")
     ul.grid(v-if="layout=='grid'")
       li(v-for="a in articles")
-        img(v-bind:src="a.image.large")
+        img(v-bind:src="a.image")
       
     ul.list(v-if="layout=='list'")
       li(v-for="a in articles")
-        img(v-bind:src="a.image.large")
+        img(v-bind:src="a.image")
         p {{a.title}}
   
   

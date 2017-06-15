@@ -6,19 +6,19 @@
 // @import "compass/reset";
 @charset "UTF-8";
 
-* {
-  font-family: "Open Sans", sans-serif;
-  // border: solid 1px;
-  margin: 0px;
-  padding: 0px;
-  position: relative;
-}
-
 /* Hide un-compiled mustache bindings
 until the Vue instance is ready */
 
 [v-cloak] {
   display: none;
+}
+
+* {
+  font-family: "Open Sans", sans-serif, 微軟正黑體;
+  // border: solid 1px;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -52,16 +52,15 @@ body {
     cursor: pointer;
     font-size: 30px;
     color: #fff;
-    background-color: #4775aa;
+    background-color: #5981af;
     margin-right: 5px;
     padding: 3px;
+    padding-top: 5px;
   }
 }
 
-.icon.active {
-  .fa.fa-list, .fa.fa-table {
-    background-color: #13d493;
-  }
+.fa.fa-list.active, .fa.fa-table.active {
+  background-color: #13d493;
 }
 
 
@@ -74,12 +73,13 @@ ul.list {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  margin-bottom: 50px;
   // display: none;
 
 
   li {
     border-bottom: solid 1px #ddd;
-    padding: 10px;
+    padding: 20px 15px;
     // overflow:
   }
 
@@ -92,11 +92,11 @@ ul.list {
 
   p {
     display: inline-block;
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 200;
+    font-size: 20px;
     color: #636363;
     vertical-align: top;
-    margin-left: 10px;
+    margin-left: 15px;
     text-align: left;
   }
 }
@@ -108,6 +108,7 @@ ul.grid {
   width: 60%;
   margin: 0px auto;
   padding: 5px 25px;
+  margin-bottom: 50px;
   text-align: left;
   position: flex;
   align-items: center;
