@@ -1,0 +1,15 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+// @import "compass/reset";
+@charset "UTF-8";
+
+* {
+  font-family: 'Roboto', sans-serif, 微軟正黑體;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: bold;
+}
