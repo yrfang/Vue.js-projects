@@ -6,7 +6,6 @@
 /* line 9, ../scss/screen.scss */
 * {
   font-family: 'Roboto', sans-serif, 微軟正黑體;
-  border: solid 1px;
 }
 
 /* line 14, ../scss/screen.scss */
@@ -62,16 +61,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* line 64, ../scss/screen.scss */
 .new_container .title {
-  width: 90%;
+  width: 70%;
   padding: 10px 8px;
   border: solid 1px #999;
   outline: none;
 }
 /* line 71, ../scss/screen.scss */
 .new_container .text {
-  width: 90%;
+  width: 70%;
   height: 250px;
-  max-width: 90%;
+  max-width: 100%;
   padding: 10px 8px;
   margin-top: 10px;
   border: solid 1px #999;
@@ -79,38 +78,82 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 82, ../scss/screen.scss */
-.display {
-  margin-top: 20px;
-}
-
-/* line 86, ../scss/screen.scss */
-.display_container {
+.display_outer {
   background-color: #FCC29A;
   height: 250px;
-  padding: 10px;
-  margin-bottom: 10px;
   border-radius: 5px;
+  padding: 15px 20px;
+  margin: 10px;
+  position: relative;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-  line-height: 2;
-  letter-spacing: 1.5px;
-  vertical-align: top;
-  text-align: justify;
-}
-/* line 99, ../scss/screen.scss */
-.display_container h4 {
-  width: 80%;
-  height: 60px;
-  margin: 0px;
-  padding-bottom: 10px;
-  line-height: 1.5;
-  color: #fff;
   overflow: hidden;
+  box-sizing: border-box;
 }
-/* line 109, ../scss/screen.scss */
-.display_container p {
+/* line 94, ../scss/screen.scss */
+.display_outer:hover .editor_box {
+  opacity: 1;
+}
+
+/* line 100, ../scss/screen.scss */
+.editor_box {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  width: initial;
+  opacity: 0;
+  transition: 0.5s;
+}
+/* line 108, ../scss/screen.scss */
+.editor_box .delete_btn, .editor_box .edit_btn {
+  width: 40px;
+  height: 40px;
+  margin-top: 5px;
+  border-radius: 50%;
+  text-align: center;
+  position: relative;
+  background-color: #f9c2ea;
+  cursor: pointer;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  border: solid 1px rgba(0, 0, 0, 0.1);
+}
+/* line 120, ../scss/screen.scss */
+.editor_box .delete_btn:hover, .editor_box .edit_btn:hover {
+  background-color: #f68fda;
+}
+/* line 122, ../scss/screen.scss */
+.editor_box .delete_btn:hover i, .editor_box .edit_btn:hover i {
+  color: #fff;
+}
+/* line 128, ../scss/screen.scss */
+.editor_box i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #555;
+  transition: 0.5s;
+}
+
+/* line 139, ../scss/screen.scss */
+.display_inner {
+  height: calc(250px - 15px - 15px);
+  overflow: hidden;
+  text-align: left;
+}
+/* line 145, ../scss/screen.scss */
+.display_inner .display_title {
   width: 80%;
-  height: 150px;
-  font-size: 18px;
-  color: #333;
-  white-space: nowrap;
+  height: 50px;
+  color: #fff;
+  font-weight: 700;
+}
+/* line 153, ../scss/screen.scss */
+.display_inner .display_text {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 40px;
+  text-align: justify;
+  font-size: 16px;
+  line-height: 1.5;
 }

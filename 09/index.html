@@ -19,26 +19,39 @@
       <hr>
       <div class="row">
         <div class="col-sm-12">
-          <button class="btn btn_new">New</button>
+          <button @click="add_new_note" class="btn btn_new">New</button>
         </div>
         <div class="col-sm-12">
           <input placeholder="Enter your notes" class="search">
         </div>
         <div class="col-sm-12">
-          <div class="new_container">
-            <input placeholder="Note Title" class="title">
-            <textarea placeholder="This is my note..." class="text"></textarea>
-            <button class="btn btn_save">Save</button>
+          <div v-for="(note, id) in notes" @click.stop v-if="show_note" class="new_container">
+            <input placeholder="Note Title" v-model="note.title" class="title">
+            <textarea placeholder="This is my note..." v-model="note.text" class="text"></textarea>
+            <button @click="hide_edit_note" class="btn btn_save">Save</button>
           </div>
         </div>
-        <div v-for="note in notes" class="col-lg-4 col-md-6 col-sm-12 display">
-          <div class="display_container">
-            <h4>{{note.title}}</h4>
-            <p>{{note.text}}</p>
+        <hr>
+        <div v-for="(note, id) in notes" class="col-lg-4 col-md-4 col-sm-6 col-12 display">
+          <div class="display_outer">
+            <div class="editor_box">
+              <div @click="delete_note(id)" class="delete_btn"><i class="fa fa-trash-o"></i></div>
+              <div @click.stop="toggle_edit_note" class="edit_btn"><i class="fa fa-pencil"></i></div>
+            </div>
+            <div class="display_inner">
+              <h3 class="display_title">{{(note.title).substring(0,12)}}...</h3>
+              <p class="display_text">{{note.text}}</p>
+            </div>
           </div>
         </div>
       </div>
-      <template id="new_container"></template>
+      
+      
+      
+      
+      
+      
+      
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

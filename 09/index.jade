@@ -18,21 +18,32 @@ html(lang='en')
       hr
       .row
         .col-sm-12
-          button.btn.btn_new New
+          button.btn.btn_new(@click="add_new_note") New
         .col-sm-12
           input.search(placeholder="Enter your notes")
         .col-sm-12
-          .new_container
-            input.title(placeholder="Note Title")
-            textarea.text(placeholder="This is my note...")
-            button.btn.btn_save Save
-
-        .col-lg-4.col-md-6.col-sm-12.display(v-for="note in notes")
-          .display_container
-            h4 {{note.title}}
-            p {{note.text}}
+          .new_container(v-for="(note, id) in notes",
+                        @click.stop,
+                        v-if="show_note")
+            input.title(placeholder="Note Title",
+                        v-model="note.title")
+            textarea.text(placeholder="This is my note...",
+                          v-model="note.text")
+            button.btn.btn_save(@click="hide_edit_note") Save
+        hr
+        .col-lg-4.col-md-4.col-sm-6.col-12.display(v-for="(note, id) in notes")
+          .display_outer
+            .editor_box
+              .delete_btn(@click="delete_note(id)")
+                i.fa.fa-trash-o
+              .edit_btn(@click.stop="toggle_edit_note")
+                i.fa.fa-pencil
+            .display_inner
+              h3.display_title {{(note.title).substring(0,12)}}...
+              p.display_text {{note.text}}
+            
       
-      template#new_container
+      //- template#new_container
       
         
         
