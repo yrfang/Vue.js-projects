@@ -23,7 +23,7 @@ $(document).ready(function() {
     el: "#app",
     data: {
       notes: test_notes,
-      show_note: false,
+      show_note: false
     },
     methods: {
       add_new_note: function() {
@@ -36,11 +36,12 @@ $(document).ready(function() {
         this.notes.splice(id,1);
       },
       toggle_edit_note: function() {
-
-        this.show_note = !this.show_note;
+        const vobj=this;
+        vobj.show_note = !vobj.show_note;
       },
-      hide_edit_note: function() {
-        this.show_note = false;
+      hide_edit_note: function(index) {
+        const vobj=this;
+        vobj.show_note = false;
       }
     }
   });

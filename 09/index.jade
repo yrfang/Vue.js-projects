@@ -39,6 +39,7 @@ html(lang='en')
               .edit_btn(@click.stop="toggle_edit_note")
                 i.fa.fa-pencil
             .display_inner
+              .test {{id}}
               h3.display_title {{(note.title).substring(0,12)}}...
               p.display_text {{note.text}}
             

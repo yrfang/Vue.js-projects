@@ -39,6 +39,7 @@
               <div @click.stop="toggle_edit_note" class="edit_btn"><i class="fa fa-pencil"></i></div>
             </div>
             <div class="display_inner">
+              <div class="test">{{id}}</div>
               <h3 class="display_title">{{(note.title).substring(0,12)}}...</h3>
               <p class="display_text">{{note.text}}</p>
             </div>
