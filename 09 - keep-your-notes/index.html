@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,900">
+    <link rel="stylesheet" href="css/screen.css">
+    <title>Keep Notes</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="row">
+        <div class="col-sm-12">
+          <h4 class="information">Keep Your Notes</h4>
+        </div>
+      </div><br>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-1 col-md-1 col-lg-1">
+            <button @click="add_new_note" class="btn btn_new">New</button>
+          </div>
+          <div class="col-sm-11 col-md-11 col-lg-11">
+            <input placeholder="Search your notes" v-model="searchString" class="search">
+          </div>
+        </div>
+        <hr>
+        <div class="row display">
+          <div v-for="(note, id) in filterNotes" class="col-lg-4 col-md-4 col-sm-6 col-12">
+            <div class="display_outer">
+              <div class="editor_box">
+                <div @click="delete_note(id)" class="delete_btn"><i class="fa fa-trash-o"></i></div>
+                <div @click.stop="edit(note)" class="edit_btn"><i class="fa fa-pencil"></i></div>
+              </div>
+              <div class="display_inner">
+                <div v-if="note.editMode" class="title_edit">
+                  <textarea placeholder="Note Title" v-model="note.title" class="title"></textarea>
+                </div>
+                <h3 v-else class="display_title">{{(note.title).substring(0,15)}}</h3>
+                <div v-if="note.editMode" class="text_edit">
+                  <textarea placeholder="This is my note..." v-model="note.text" class="text"></textarea>
+                </div>
+                <p v-else class="display_text">{{(note.text).substring(0,60)}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="v-note.js"></script>
+  </body>
+</html>

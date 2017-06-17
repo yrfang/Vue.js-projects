@@ -16,32 +16,32 @@ $(document).ready(function() {
   var vm = new Vue({
     el: "#app",
     data: {
-      notes: test_notes,
+      notes: [],
       show_note: false,
       searchString: "",
     },
     computed: {
       filterNotes: function() {
         var vobj=this;
-        var coutries_array = vobj.notes,
+        var notes_array = vobj.notes,
             searchString = vobj.searchString;
         var searchCode = new RegExp(vobj.searchString, 'gi');
         if (!searchString) {
-          return coutries_array;
+          return notes_array;
         }
 
         searchString = searchString.trim().toLocaleLowerCase();
 
-        coutries_array = coutries_array.filter((item) => {
-          if (item.name.toLocaleLowerCase().indexOf(searchString) !== -1) {
+        notes_array = notes_array.filter((item) => {
+          if (item.title.toLocaleLowerCase().indexOf(searchString) !== -1) {
             return item;
           }
-          if (item.code.toLocaleLowerCase().indexOf(searchString) !== -1) {
+          if (item.text.toLocaleLowerCase().indexOf(searchString) !== -1) {
             return item;
           }
         });
         // Return an array with the filtered data.
-        return coutries_array;
+        return notes_array;
       }
     },
     methods: {
