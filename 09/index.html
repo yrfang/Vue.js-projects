@@ -22,26 +22,23 @@
           <button @click="add_new_note" class="btn btn_new">New</button>
         </div>
         <div class="col-sm-12">
-          <input placeholder="Enter your notes" class="search">
+          <input placeholder="Search your notes" v-model="searchString" class="search">
         </div>
-        <div class="col-sm-12">
-          <div v-for="(note, id) in notes" @click.stop v-if="show_note" class="new_container">
-            <input placeholder="Note Title" v-model="note.title" class="title">
-            <textarea placeholder="This is my note..." v-model="note.text" class="text"></textarea>
-            <button @click="hide_edit_note" class="btn btn_save">Save</button>
-          </div>
-        </div>
-        <hr>
-        <div v-for="(note, id) in notes" class="col-lg-4 col-md-4 col-sm-6 col-12 display">
+        <div v-for="(note, id) in filterNotes" class="col-lg-4 col-md-4 col-sm-6 col-12 display">
           <div class="display_outer">
             <div class="editor_box">
               <div @click="delete_note(id)" class="delete_btn"><i class="fa fa-trash-o"></i></div>
-              <div @click.stop="toggle_edit_note" class="edit_btn"><i class="fa fa-pencil"></i></div>
+              <div @click.stop="edit(note)" class="edit_btn"><i class="fa fa-pencil"></i></div>
             </div>
             <div class="display_inner">
-              <div class="test">{{id}}</div>
-              <h3 class="display_title">{{(note.title).substring(0,12)}}...</h3>
-              <p class="display_text">{{note.text}}</p>
+              <div v-if="note.editMode" class="title_edit">
+                <textarea placeholder="Note Title" v-model="note.title" class="title"></textarea>
+              </div>
+              <h3 v-else class="display_title">{{(note.title).substring(0,15)}}</h3>
+              <div v-if="note.editMode" class="text_edit">
+                <textarea placeholder="This is my note..." v-model="note.text" class="text"></textarea>
+              </div>
+              <p v-else class="display_text">{{(note.text).substring(0,60)}}</p>
             </div>
           </div>
         </div>
