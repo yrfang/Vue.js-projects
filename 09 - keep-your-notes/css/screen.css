@@ -157,19 +157,19 @@ h1, h2, h3, h4, h5, h6 {
   outline: none;
   color: #333;
   background-color: rgba(255, 132, 124, 0.2);
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(255, 132, 124, 0.7) inset;
+  border: none;
 }
-/* line 159, ../scss/screen.scss */
+/* line 160, ../scss/screen.scss */
 .display_inner .title {
   height: 80px;
   width: 80%;
   overflow-y: scroll;
-  border: solid 1px #45171D;
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 10px;
   font-size: 20px;
 }
-/* line 169, ../scss/screen.scss */
+/* line 170, ../scss/screen.scss */
 .display_inner .text {
   width: 100%;
   height: 100px;
@@ -177,16 +177,15 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 100px;
   overflow-y: scroll;
   margin-top: 20px;
-  border: solid 1px #45171D;
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 10px;
   text-align: justify;
   font-size: 16px;
   line-height: 1.5;
 }
 
 @media screen and (max-width: 767px) {
-  /* line 186, ../scss/screen.scss */
+  /* line 187, ../scss/screen.scss */
   .search {
     width: 80%;
     margin-top: 10px;

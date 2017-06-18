@@ -1,31 +1,36 @@
 $(document).ready(function() {
-  var test_notes = [
-    {
-      "title": "今天嘗試自己做",
-      "text": "類似todolist",
-      editMode: false
+
+  var STORAGE_KEY = 'vue-js-note'
+  var noteStorage = {
+    fetch: function () {
+      var notes = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      return notes;
     },
-    {
-      "title": "君不見黃河之水天上來，奔流到海不復回？，君不見高堂明鏡悲白髮",
-      "text": "君不見黃河之水天上來，奔流到海不復回？，君不見高堂明鏡悲白髮，朝如青絲暮成雪？天生我材必有用，千金散盡還復來。朝如青絲暮成雪？天生我材必有用，千金散盡還復來。",
-      editMode: false
+    save: function (notes) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
     }
-  ]
+  }
 
 
   var vm = new Vue({
     el: "#app",
     data: {
-      notes: [],
+      notes: noteStorage.fetch(),
       show_note: false,
       searchString: "",
+    },
+    watch: {
+      notes: {
+        handler: function(notes) {
+          noteStorage.save(notes);
+        }
+      }
     },
     computed: {
       filterNotes: function() {
         var vobj=this;
-        var notes_array = vobj.notes,
+        var notes_array = vobj.notes;
             searchString = vobj.searchString;
-        var searchCode = new RegExp(vobj.searchString, 'gi');
         if (!searchString) {
           return notes_array;
         }
@@ -45,22 +50,28 @@ $(document).ready(function() {
       }
     },
     methods: {
-      add_new_note: function() {
-        this.notes.push({
+      add_new_note: function(e) {
+        e.preventDefault();
+        const vobj=this;
+        const notes = vobj.notes;
+        const note = {
           "title": "New note",
           "text": "Your new note",
           editMode: false
-        });
+        }
+        vobj.notes.push(note);
       },
       delete_note: function(id) {
         this.notes.splice(id,1);
       },
       edit: function(item) {
         item.editMode = !item.editMode;
+        const vobj=this;
+        console.log(vobj.notes);
+        noteStorage.save(vobj.notes);
       }
     }
   });
-
 
 
 
