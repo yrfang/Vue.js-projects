@@ -13,3 +13,10 @@ html, body {
   padding-right: 20px;
   padding-right: 20px;
 }
+
+/* line 18, ../scss/screen.scss */
+.red {
+  background-color: #f24;
+  color: white;
+  padding: 5px;
+}

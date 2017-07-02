@@ -13,7 +13,8 @@ body
   .container
     #app
       h2 Lazy Table!
-      input.form-control(placeholder="Search any keywords")
+      input.form-control(placeholder="Search any keywords",
+                         v-model="search_key")
       br
       table.table
         thead
@@ -22,7 +23,7 @@ body
           th email
           th Country
         tbody
-          tr(v-for="data in idData")
+          tr(v-for="data in filtered_data")
             td {{data.id}}
             td {{data.first_name}} {{data.last_name}}
             td {{data.email}}

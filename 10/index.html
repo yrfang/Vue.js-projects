@@ -12,7 +12,7 @@
   <div class="container">
     <div id="app">
       <h2>Lazy Table!</h2>
-      <input placeholder="Search any keywords" class="form-control"><br>
+      <input placeholder="Search any keywords" v-model="search_key" class="form-control"><br>
       <table class="table">
         <thead>
           <th>#</th>
@@ -21,7 +21,7 @@
           <th>Country</th>
         </thead>
         <tbody>
-          <tr v-for="data in idData">
+          <tr v-for="data in filtered_data">
             <td>{{data.id}}</td>
             <td>{{data.first_name}} {{data.last_name}}</td>
             <td>{{data.email}}</td>
