@@ -24,7 +24,7 @@ var vm = new Vue({
   data: {
     idData: [],
     columns: ['id', 'First name', 'Last name', 'Email', 'Country'],
-    search_key: ""
+    search_key: "Jennifer"
   },
   mounted: function() {
     var vobj=this;
@@ -37,18 +37,48 @@ var vm = new Vue({
     });
   },
   computed: {
-    filtered_data() {
-      if (this.search_key=="") return this.table_data;
-      var clone = JSON.parse(JSON.stringify(this.table_data));
-      var reg = new RegExp("("+ this.table_data +")");
-      var clone_tempate = clone.filter((obj) => Object.values(obj))
-                               .some((obj) => (obj+"").indexOf(this.search_key)!=-1)
-      clone_tempate.forEach((data) => {
-        Object.keys(data).forEach((key) => {
-          data[key] = (data[key]+"").replace(reg, "<span class='red'>$1</span>");
+    filter_data() {
+      var vobj = this;
+      return this.idData.filter((data) => {
+        var row = ['id', 'first_name', 'last_name', 'email', 'country'];
+        var flag = false;
+        row.forEach((row_data) => {
+          if (data[row_data].toLowerCase().indexOf(vobj.search_key.toLowerCase())!=-1) {
+            flag = true;
+          }
+          // if (data['first_name'].indexOf("Jennifer")!=-1) {
+          //   return true;
+          // }
         });
-      });
-      return clone_tempate;
-    }
+        return flag;
+      }).map((data) => {
+        //空白字串就不需要highlight
+        if (vobj.search_key=="") return data;
+
+        //擷取描述的JSON複本，用來highlingt資料用的
+        var template_data = JSON.parse(JSON.stringify(data));
+        var row = ['id', 'first_name', 'last_name', 'email', 'country'];
+
+        row.forEach((row_data) => {
+          var regexp = new RegExp(vobj.search_key, 'i');
+          var match_data = template_data[row_data].match(regexp);
+          console.log(match_data);
+        });
+        return template_data;
+      })
+    },
+    // filtered_data() {
+    //   if (this.search_key=="") return this.table_data;
+    //   var clone = JSON.parse(JSON.stringify(this.table_data));
+    //   var reg = new RegExp("("+ this.table_data +")");
+    //   var clone_tempate = clone.filter((obj) => Object.values(obj))
+    //                            .some((obj) => (obj+"").indexOf(this.search_key)!=-1)
+    //   clone_tempate.forEach((data) => {
+    //     Object.keys(data).forEach((key) => {
+    //       data[key] = (data[key]+"").replace(reg, "<span class='red'>$1</span>");
+    //     });
+    //   });
+    //   return clone_tempate;
+    // }
   }
 });
