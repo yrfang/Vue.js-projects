@@ -48,6 +48,27 @@ var vm = new Vue({
           };
         });
         return flag;
+      }).map((data) => {
+        // 空白搜尋不需要highlihg，回到原先陣列
+        if (vobj.search_key == "") return data;
+
+        // 擷取JSON副本，用來highlight資料用，不更改原先資料
+        var row = ['id', 'first_name', 'last_name', 'email', 'country'];
+        var template_data = JSON.parse(JSON.stringify(data));
+        console.log(template_data);
+
+        row.forEach((row_data) => {
+          var regex = new RegExp(vobj.search_key, "gi");
+          var match_data = template_data[row_data].toString().match(regex);
+          console.log(match_data);
+          // console.log(template_data[row_data]);
+          var span_match_data = "<span class='highlingt'>" + match_data + "</span>";
+
+          if (match_data) {
+            template_data[row_data] = template_data[row_data].toString().replace(regex, span_match_data);
+          }
+        });
+        return template_data;
       })
     }
   }

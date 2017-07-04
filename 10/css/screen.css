@@ -15,7 +15,7 @@ html, body {
 }
 
 /* line 18, ../scss/screen.scss */
-.red {
+.highlight {
   background-color: #ffa022;
   color: white;
   padding: 5px;
