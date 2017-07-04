@@ -23,8 +23,9 @@ var vm = new Vue({
   el: "#app",
   data: {
     idData: [],
-    columns: ['id', 'First name', 'Last name', 'Email', 'Country'],
-    search_key: ""
+    search_key: "",
+    page_index: 0,
+    page_count: 50
   },
   mounted: function() {
     var vobj=this;
@@ -43,7 +44,7 @@ var vm = new Vue({
         var row = ['id', 'first_name', 'last_name', 'email', 'country'];
         var flag = false;
         row.forEach((row_data) => {
-          if (data[row_data].toString().toLowerCase().indexOf(vobj.search_key.toString().toLowerCase())!=-1) {
+          if (data[row_data].toString().toLowerCase().indexOf(vobj.search_key.toString().trim().toLowerCase())!=-1) {
             flag=true;
           };
         });
@@ -58,11 +59,11 @@ var vm = new Vue({
         console.log(template_data);
 
         row.forEach((row_data) => {
-          var regex = new RegExp(vobj.search_key, "gi");
+          var regex = new RegExp(vobj.search_key.trim(), "gi");
           var match_data = template_data[row_data].toString().match(regex);
-          console.log(match_data);
+          // console.log(match_data);
           // console.log(template_data[row_data]);
-          var span_match_data = "<span class='highlingt'>" + match_data + "</span>";
+          var span_match_data = "<span class='highlight'>" + match_data + "</span>";
 
           if (match_data) {
             template_data[row_data] = template_data[row_data].toString().replace(regex, span_match_data);
@@ -70,6 +71,17 @@ var vm = new Vue({
         });
         return template_data;
       })
+    },
+    sliced_table_data() {
+      var vobj=this;
+      // var slice_filter_data = vobj.filter_data;
+      let start = vobj.page_index * vobj.page_count;
+      let end = (vobj.page_index+1) * vobj.page_count;
+
+      return vobj.filter_data.slice(start,end);
+    },
+    page_total() {
+      return (this.idData.length/this.page_count);
     }
   }
 });

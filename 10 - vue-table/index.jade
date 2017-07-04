@@ -8,14 +8,17 @@ head
   link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
   link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto")
   link(rel="stylesheet", href="css/screen.css")
-  title Vue.js Lazy Table
+  title Vue.js Table
 body
   .container
     #app
-      h2 Lazy Table!
-      input.form-control(placeholder="Search any keywords",
-                         v-model="search_key")
+      h2 Vue Table
+      input.form-control(placeholder="Search any ID or information",
+                         v-model="search_key", v-if="sliced_table_data")
       br
+      .form-group
+        button.btn-group(v-for="page in page_total", @click="page_index=page-1") {{page}}
+      //- button {{page_index}}
       table.table
         thead
           th #
@@ -23,11 +26,12 @@ body
           th email
           th Country
         tbody
-          tr(v-for="data in filter_data")
-            td {{data.id}}
-            td {{data.first_name}} {{data.last_name}}
-            td {{data.email}}
-            td {{data.country}}
+          tr(v-for="data in sliced_table_data")
+            td(v-html="data.id")
+            td(v-html="data.first_name + ' ' + data.last_name")
+            td(v-html="data.email")
+            td(v-html="data.country")
+    
     //-     lazytable(v-for="data in idData",
     //-               :table_data="data",
     //-               :key="data.id",
@@ -46,5 +50,5 @@ body
   script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
   script(src="https://unpkg.com/vue/dist/vue.js")
-  script(src="lazy-table.js")  
+  script(src="vue-table.js")  
   

@@ -6,13 +6,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <link rel="stylesheet" href="css/screen.css">
-  <title>Vue.js Lazy Table</title>
+  <title>Vue.js Table</title>
 </head>
 <body>
   <div class="container">
     <div id="app">
-      <h2>Lazy Table!</h2>
-      <input placeholder="Search any keywords" v-model="search_key" class="form-control"><br>
+      <h2>Vue Table</h2>
+      <input placeholder="Search any ID or information" v-model="search_key" v-if="sliced_table_data" class="form-control"><br>
+      <div class="form-group">
+        <button v-for="page in page_total" @click="page_index=page-1" class="btn-group">{{page}}</button>
+      </div>
       <table class="table">
         <thead>
           <th>#</th>
@@ -21,11 +24,11 @@
           <th>Country</th>
         </thead>
         <tbody>
-          <tr v-for="data in filter_data">
-            <td>{{data.id}}</td>
-            <td>{{data.first_name}} {{data.last_name}}</td>
-            <td>{{data.email}}</td>
-            <td>{{data.country}}</td>
+          <tr v-for="data in sliced_table_data">
+            <td v-html="data.id"></td>
+            <td v-html="data.first_name + ' ' + data.last_name"></td>
+            <td v-html="data.email"></td>
+            <td v-html="data.country"></td>
           </tr>
         </tbody>
       </table>
@@ -37,5 +40,5 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="lazy-table.js"> </script>
+  <script src="vue-table.js"> </script>
 </body>

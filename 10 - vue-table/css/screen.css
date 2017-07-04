@@ -1,0 +1,51 @@
+@charset "UTF-8";
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 9, ../scss/screen.scss */
+* {
+  font-family: 微軟正黑體;
+}
+
+/* line 13, ../scss/screen.scss */
+html, body {
+  padding-right: 20px;
+  padding-right: 20px;
+}
+
+/* line 18, ../scss/screen.scss */
+table {
+  margin-top: 15px;
+}
+
+/* line 22, ../scss/screen.scss */
+.btn-group {
+  background-color: transparent;
+  border: solid 1px #ccc;
+  padding: 5px 10px;
+  width: 40px;
+  height: 30px;
+  margin-bottom: 3px;
+  text-align: center;
+}
+/* line 31, ../scss/screen.scss */
+.btn-group:first-child {
+  border-radius: 5px 0px 0px 5px;
+}
+/* line 35, ../scss/screen.scss */
+.btn-group:last-child {
+  border-radius: 0px 5px 5px 0px;
+}
+/* line 39, ../scss/screen.scss */
+.btn-group:hover {
+  background-color: #fea022;
+  color: #fff;
+}
+
+/* line 45, ../scss/screen.scss */
+.highlight {
+  background-color: #fea022;
+  color: white;
+  padding: 3px 2px;
+}
