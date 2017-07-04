@@ -24,7 +24,7 @@ var vm = new Vue({
   data: {
     idData: [],
     columns: ['id', 'First name', 'Last name', 'Email', 'Country'],
-    search_key: "Jennifer"
+    search_key: ""
   },
   mounted: function() {
     var vobj=this;
@@ -43,7 +43,9 @@ var vm = new Vue({
         var row = ['id', 'first_name', 'last_name', 'email', 'country'];
         var flag = false;
         row.forEach((row_data) => {
-          console.log(data[row_data]);
+          if (data[row_data].toString().toLowerCase().indexOf(vobj.search_key.toString().toLowerCase())!=-1) {
+            flag=true;
+          };
         });
         return flag;
       })
