@@ -79,10 +79,6 @@ var vm = new Vue({
       let end = (vobj.page_index+1) * vobj.page_count;
 
       return vobj.filter_data.slice(start,end);
-
-      // if (vobj.search_key.value != "") {
-      //   vobj.page_index = 0;
-      // }
     },
     page_total() {
       return (this.idData.length/this.page_count);
@@ -99,6 +95,9 @@ var vm = new Vue({
     clearSearch() {
       var vobj=this;
       vobj.search_key="";
+    },
+    sortedByKey() {
+
     }
   }
 });
