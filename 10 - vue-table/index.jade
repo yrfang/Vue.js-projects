@@ -13,12 +13,13 @@ body
   .container
     #app
       h2 Vue Table
-      input.form-control(placeholder="Search any ID or information",
-                         v-model="search_key", v-if="sliced_table_data")
-      br
+      input.form-control.search(placeholder="Search any ID or information",
+                         v-model="search_key",
+                         @keyup="keymonitor")
+      button.btn.btn-default.clear(@click="clearSearch") Clear
       .form-group
         button.btn-group(v-for="page in page_total", @click="page_index=page-1") {{page}}
-      //- button {{page_index}}
+      .currentPage {{search_key}}
       table.table
         thead
           th #

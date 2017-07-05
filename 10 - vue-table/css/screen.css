@@ -15,35 +15,62 @@ html, body {
 }
 
 /* line 18, ../scss/screen.scss */
+.search {
+  width: 80%;
+  min-width: 270px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* line 25, ../scss/screen.scss */
+.clear {
+  width: 60px;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 30, ../scss/screen.scss */
+.clear:hover {
+  background-color: #fea022;
+  color: #fff;
+}
+
+/* line 36, ../scss/screen.scss */
+.form-group {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* line 41, ../scss/screen.scss */
 table {
   margin-top: 15px;
 }
 
-/* line 22, ../scss/screen.scss */
+/* line 45, ../scss/screen.scss */
 .btn-group {
   background-color: transparent;
-  border: solid 1px #ccc;
+  border: solid 1px #e4e4e4;
   padding: 5px 10px;
   width: 40px;
   height: 30px;
   margin-bottom: 3px;
   text-align: center;
 }
-/* line 31, ../scss/screen.scss */
+/* line 54, ../scss/screen.scss */
 .btn-group:first-child {
   border-radius: 5px 0px 0px 5px;
 }
-/* line 35, ../scss/screen.scss */
+/* line 58, ../scss/screen.scss */
 .btn-group:last-child {
   border-radius: 0px 5px 5px 0px;
 }
-/* line 39, ../scss/screen.scss */
+/* line 62, ../scss/screen.scss */
 .btn-group:hover {
   background-color: #fea022;
   color: #fff;
 }
 
-/* line 45, ../scss/screen.scss */
+/* line 68, ../scss/screen.scss */
 .highlight {
   background-color: #fea022;
   color: white;

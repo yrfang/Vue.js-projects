@@ -56,7 +56,7 @@ var vm = new Vue({
         // 擷取JSON副本，用來highlight資料用，不更改原先資料
         var row = ['id', 'first_name', 'last_name', 'email', 'country'];
         var template_data = JSON.parse(JSON.stringify(data));
-        console.log(template_data);
+        // console.log(template_data);
 
         row.forEach((row_data) => {
           var regex = new RegExp(vobj.search_key.trim(), "gi");
@@ -79,9 +79,26 @@ var vm = new Vue({
       let end = (vobj.page_index+1) * vobj.page_count;
 
       return vobj.filter_data.slice(start,end);
+
+      // if (vobj.search_key.value != "") {
+      //   vobj.page_index = 0;
+      // }
     },
     page_total() {
       return (this.idData.length/this.page_count);
+    }
+  },
+  methods: {
+    keymonitor(e) {
+      var vobj=this;
+      // console.log(event.key);
+      if(event.key) {
+        vobj.page_index = 0;
+      }
+    },
+    clearSearch() {
+      var vobj=this;
+      vobj.search_key="";
     }
   }
 });

@@ -12,10 +12,12 @@
   <div class="container">
     <div id="app">
       <h2>Vue Table</h2>
-      <input placeholder="Search any ID or information" v-model="search_key" v-if="sliced_table_data" class="form-control"><br>
+      <input placeholder="Search any ID or information" v-model="search_key" @keyup="keymonitor" class="form-control search">
+      <button @click="clearSearch" class="btn btn-default clear">Clear</button>
       <div class="form-group">
         <button v-for="page in page_total" @click="page_index=page-1" class="btn-group">{{page}}</button>
       </div>
+      <div class="currentPage">{{search_key}}</div>
       <table class="table">
         <thead>
           <th>#</th>
