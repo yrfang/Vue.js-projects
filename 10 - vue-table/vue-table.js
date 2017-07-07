@@ -4,11 +4,12 @@ var vm = new Vue({
   el: "#app",
   data: {
     idData: [],
+    rows: ['id', 'first_name', 'email', 'country'],
     search_key: "",
     page_index: 0,
     page_count: 50,
-    sortOrders: [],
-    sortKey: ''
+    sortKey: 'id',
+    reverse: false
   },
   mounted: function() {
     var vobj=this;
@@ -23,29 +24,29 @@ var vm = new Vue({
   computed: {
     sort_data() {
       var vobj = this;
-      var row = ['id', 'first_name', 'last_name', 'email', 'country'];
+      var rows = ['id', 'first_name', 'email', 'country'];
+      // console.log('hi');
 
-      vobj.idData = vobj.idData.sort((a,b)=>{
-        if (a.email > b.email) {
-          return 1;
-        }
-        if (a.email < b.email) {
-          return -1;
-        }
-        // a must be equal to b
-        return 0;
-      });
+      if (vobj.sortKey) {
+
+        vobj.idData = vobj.idData.sort((a, b)=>{
+          a = a[vobj.sortKey]
+          b = b[vobj.sortKey]
+          if (vobj.reverse) {
+            return (a === b ? 0 : a > b ? -1 : 1);
+          }
+          return (a === b ? 0 : a > b ? 1 : -1)
+        });
+      }
       return vobj.idData;
-      console.log(vobj.idData);
-
     },
     filter_data() {
       var vobj = this;
       return vobj.sort_data.filter((data) => {
-        var row = ['id', 'first_name', 'last_name', 'email', 'country'];
+        var rows = ['id', 'first_name', 'last_name', 'email', 'country'];
         var flag = false;
-        row.forEach((row_key) => {
-          if (data[row_key].toString().toLowerCase().indexOf(vobj.search_key.toString().trim().toLowerCase())!=-1) {
+        rows.forEach((rows_key) => {
+          if (data[rows_key].toString().toLowerCase().indexOf(vobj.search_key.toString().trim().toLowerCase())!=-1) {
             flag=true;
           };
         });
@@ -55,20 +56,20 @@ var vm = new Vue({
         if (vobj.search_key == "") return data;
 
         // 擷取JSON副本，用來highlight資料用，不更改原先資料
-        var row = ['id', 'first_name', 'last_name', 'email', 'country'];
+        var rows = ['id', 'first_name', 'last_name', 'email', 'country'];
         var template_data = JSON.parse(JSON.stringify(data));
         // console.log(template_data);
 
-        row.forEach((row_key) => {
+        rows.forEach((rows_key) => {
           var regex = new RegExp(vobj.search_key.trim(), "gi");
-          var match_data = template_data[row_key].toString().match(regex);
+          var match_data = template_data[rows_key].toString().match(regex);
           // console.log(match_data); //搜尋的字串
-          // console.log(row_key); //對應column的key
-          // console.log(template_data[row_key]); //對應column的value
+          // console.log(rows_key); //對應column的key
+          // console.log(template_data[rows_key]); //對應column的value
           var span_match_data = "<span class='highlight'>" + match_data + "</span>";
 
           if (match_data) {
-            template_data[row_key] = template_data[row_key].toString().replace(regex, span_match_data);
+            template_data[rows_key] = template_data[rows_key].toString().replace(regex, span_match_data);
           }
         });
         return template_data;
@@ -98,8 +99,18 @@ var vm = new Vue({
       var vobj=this;
       vobj.search_key="";
     },
-    sortedByKey() {
+    changeKeyNmae(key) {
+      if (key=='id') return key = '#';
+      if (key=='first_name') return key = 'Name';
+      if (key=='email') return key = 'Email';
+      if (key=='country') return key= 'Country';
+    },
+    sortBy(key) {
+      var vobj=this;
+      vobj.sortKey = key;
+      vobj.reverse = !vobj.reverse;
 
+      return vobj.sort_data[key];
     }
   }
 });

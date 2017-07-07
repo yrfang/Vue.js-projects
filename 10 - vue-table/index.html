@@ -18,13 +18,14 @@
       <div class="form-group">
         <button v-for="page in page_total" @click="page_index=page-1" class="btn-group">{{page}}</button>
       </div>
-      <div class="currentPage">{{search_key}}</div>
       <table class="table">
         <thead>
-          <th>#<span><i class="fa fa-caret-down"></i></span></th>
-          <th>Name</th>
-          <th>email</th>
-          <th>Country</th>
+          <tr>
+            <th v-for="row in rows" @click="sortBy(row)">
+               
+              {{ changeKeyNmae(row) }}
+            </th>
+          </tr>
         </thead>
         <tbody>
           <tr v-for="data in sliced_table_data">

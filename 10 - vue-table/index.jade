@@ -13,6 +13,7 @@ head
 body
   .container
     #app
+      //- {{sort_data}}
       h2 Vue Table
       input.form-control.search(placeholder="Search any ID or information",
                          v-model="search_key",
@@ -20,15 +21,13 @@ body
       button.btn.btn-default.clear(@click="clearSearch") Clear
       .form-group
         button.btn-group(v-for="page in page_total", @click="page_index=page-1") {{page}}
-      .currentPage {{search_key}}
+      //- .currentPage {{search_key}}
       table.table
         thead
-          th #
-            span
-              i.fa.fa-caret-down
-          th Name
-          th email
-          th Country
+          tr
+            th(v-for="row in rows",
+               @click="sortBy(row)") 
+              {{ changeKeyNmae(row) }}
         tbody
           tr(v-for="data in sliced_table_data")
             td(v-html="data.id")
