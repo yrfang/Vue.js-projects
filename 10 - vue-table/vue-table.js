@@ -1,31 +1,14 @@
 var idData = "https://gist.githubusercontent.com/arthurSena/bd98c43ca6b5e1c642b4/raw/789ba104e2692bc63d4442ef730c7f3e9755b76d/data.json";
 
-// Vue.component("lazytable", {
-//   template: "#table_template",
-//   props: ["table_data", "rows","id", "columns"],
-//   data() {
-//     return {
-//       search_key: ""
-//     }
-//   },
-//   computed: {
-//     keys() {
-//       let rows = this.table_data;
-//       let row_keys = Object.keys(rows)
-//                            .reduce((prep, cur) => prep.concat(cur),[])
-//                            .filter((obj,index,arr) => arr.indexOf(obj)==index)
-//       return row_keys;
-//     }
-//   }
-// });
-
 var vm = new Vue({
   el: "#app",
   data: {
     idData: [],
     search_key: "",
     page_index: 0,
-    page_count: 50
+    page_count: 50,
+    sortOrders: [],
+    sortKey: ''
   },
   mounted: function() {
     var vobj=this;
@@ -38,13 +21,31 @@ var vm = new Vue({
     });
   },
   computed: {
+    sort_data() {
+      var vobj = this;
+      var row = ['id', 'first_name', 'last_name', 'email', 'country'];
+
+      vobj.idData = vobj.idData.sort((a,b)=>{
+        if (a.email > b.email) {
+          return 1;
+        }
+        if (a.email < b.email) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+      return vobj.idData;
+      console.log(vobj.idData);
+
+    },
     filter_data() {
       var vobj = this;
-      return this.idData.filter((data) => {
+      return vobj.sort_data.filter((data) => {
         var row = ['id', 'first_name', 'last_name', 'email', 'country'];
         var flag = false;
-        row.forEach((row_data) => {
-          if (data[row_data].toString().toLowerCase().indexOf(vobj.search_key.toString().trim().toLowerCase())!=-1) {
+        row.forEach((row_key) => {
+          if (data[row_key].toString().toLowerCase().indexOf(vobj.search_key.toString().trim().toLowerCase())!=-1) {
             flag=true;
           };
         });
@@ -58,15 +59,16 @@ var vm = new Vue({
         var template_data = JSON.parse(JSON.stringify(data));
         // console.log(template_data);
 
-        row.forEach((row_data) => {
+        row.forEach((row_key) => {
           var regex = new RegExp(vobj.search_key.trim(), "gi");
-          var match_data = template_data[row_data].toString().match(regex);
-          // console.log(match_data);
-          // console.log(template_data[row_data]);
+          var match_data = template_data[row_key].toString().match(regex);
+          // console.log(match_data); //搜尋的字串
+          // console.log(row_key); //對應column的key
+          // console.log(template_data[row_key]); //對應column的value
           var span_match_data = "<span class='highlight'>" + match_data + "</span>";
 
           if (match_data) {
-            template_data[row_data] = template_data[row_data].toString().replace(regex, span_match_data);
+            template_data[row_key] = template_data[row_key].toString().replace(regex, span_match_data);
           }
         });
         return template_data;
