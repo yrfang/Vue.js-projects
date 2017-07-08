@@ -45,8 +45,24 @@ html, body {
 table {
   margin-top: 15px;
 }
+/* line 44, ../scss/screen.scss */
+table thead tr th:nth-child(1) {
+  width: 80px;
+}
+/* line 48, ../scss/screen.scss */
+table thead tr th:nth-child(2) {
+  width: 240px;
+}
+/* line 52, ../scss/screen.scss */
+table thead tr th:nth-child(3) {
+  width: 350px;
+}
+/* line 56, ../scss/screen.scss */
+table thead tr th:nth-child(4) {
+  width: 200px;
+}
 
-/* line 45, ../scss/screen.scss */
+/* line 61, ../scss/screen.scss */
 .btn-group {
   background-color: transparent;
   border: solid 1px #e4e4e4;
@@ -56,23 +72,47 @@ table {
   margin-bottom: 3px;
   text-align: center;
 }
-/* line 54, ../scss/screen.scss */
+/* line 70, ../scss/screen.scss */
 .btn-group:first-child {
   border-radius: 5px 0px 0px 5px;
 }
-/* line 58, ../scss/screen.scss */
+/* line 74, ../scss/screen.scss */
 .btn-group:last-child {
   border-radius: 0px 5px 5px 0px;
 }
-/* line 62, ../scss/screen.scss */
+/* line 78, ../scss/screen.scss */
 .btn-group:hover {
   background-color: #fea022;
   color: #fff;
 }
 
-/* line 68, ../scss/screen.scss */
+/* line 84, ../scss/screen.scss */
 .highlight {
   background-color: #fea022;
   color: white;
   padding: 3px 2px;
+}
+
+/* line 90, ../scss/screen.scss */
+.arrow {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  opacity: 1;
+}
+
+/* line 99, ../scss/screen.scss */
+.arrow.asc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #000;
+}
+
+/* line 105, ../scss/screen.scss */
+.arrow.dsc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
 }

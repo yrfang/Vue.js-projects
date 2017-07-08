@@ -23,7 +23,7 @@
           <tr>
             <th v-for="row in rows" @click="sortBy(row)">
                
-              {{ changeKeyNmae(row) }}
+              {{ changeKeyNmae(row) }}<span :class="reverse ? 'asc' : 'dsc'" v-if="sortKey==row" class="arrow"></span>
             </th>
           </tr>
         </thead>

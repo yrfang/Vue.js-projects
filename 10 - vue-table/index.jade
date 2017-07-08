@@ -28,6 +28,10 @@ body
             th(v-for="row in rows",
                @click="sortBy(row)") 
               {{ changeKeyNmae(row) }}
+              span(class="arrow",
+                   :class="reverse ? 'asc' : 'dsc'",
+                   v-if="sortKey==row")
+              
         tbody
           tr(v-for="data in sliced_table_data")
             td(v-html="data.id")
