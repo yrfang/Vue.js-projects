@@ -10,11 +10,10 @@
 
 /* line 13, ../scss/screen.scss */
 html, body {
-  padding-right: 20px;
-  padding-right: 20px;
+  padding: 20px;
 }
 
-/* line 18, ../scss/screen.scss */
+/* line 17, ../scss/screen.scss */
 .search {
   width: 80%;
   min-width: 270px;
@@ -22,47 +21,51 @@ html, body {
   vertical-align: middle;
 }
 
-/* line 25, ../scss/screen.scss */
+/* line 24, ../scss/screen.scss */
 .clear {
   width: 60px;
   height: auto;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 30, ../scss/screen.scss */
+/* line 29, ../scss/screen.scss */
 .clear:hover {
   background-color: #fea022;
   color: #fff;
 }
 
-/* line 36, ../scss/screen.scss */
+/* line 35, ../scss/screen.scss */
 .form-group {
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
-/* line 41, ../scss/screen.scss */
+/* line 40, ../scss/screen.scss */
 table {
   margin-top: 15px;
 }
-/* line 44, ../scss/screen.scss */
+/* line 43, ../scss/screen.scss */
+table thead tr th {
+  cursor: pointer;
+}
+/* line 47, ../scss/screen.scss */
 table thead tr th:nth-child(1) {
   width: 80px;
 }
-/* line 48, ../scss/screen.scss */
+/* line 51, ../scss/screen.scss */
 table thead tr th:nth-child(2) {
   width: 240px;
 }
-/* line 52, ../scss/screen.scss */
+/* line 55, ../scss/screen.scss */
 table thead tr th:nth-child(3) {
   width: 350px;
 }
-/* line 56, ../scss/screen.scss */
+/* line 59, ../scss/screen.scss */
 table thead tr th:nth-child(4) {
   width: 200px;
 }
 
-/* line 61, ../scss/screen.scss */
+/* line 64, ../scss/screen.scss */
 .btn-group {
   background-color: transparent;
   border: solid 1px #e4e4e4;
@@ -72,28 +75,28 @@ table thead tr th:nth-child(4) {
   margin-bottom: 3px;
   text-align: center;
 }
-/* line 70, ../scss/screen.scss */
+/* line 73, ../scss/screen.scss */
 .btn-group:first-child {
   border-radius: 5px 0px 0px 5px;
 }
-/* line 74, ../scss/screen.scss */
+/* line 77, ../scss/screen.scss */
 .btn-group:last-child {
   border-radius: 0px 5px 5px 0px;
 }
-/* line 78, ../scss/screen.scss */
+/* line 81, ../scss/screen.scss */
 .btn-group:hover {
   background-color: #fea022;
   color: #fff;
 }
 
-/* line 84, ../scss/screen.scss */
+/* line 87, ../scss/screen.scss */
 .highlight {
   background-color: #fea022;
   color: white;
   padding: 3px 2px;
 }
 
-/* line 90, ../scss/screen.scss */
+/* line 93, ../scss/screen.scss */
 .arrow {
   display: inline-block;
   vertical-align: middle;
@@ -103,14 +106,14 @@ table thead tr th:nth-child(4) {
   opacity: 1;
 }
 
-/* line 99, ../scss/screen.scss */
+/* line 102, ../scss/screen.scss */
 .arrow.asc {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-bottom: 4px solid #000;
 }
 
-/* line 105, ../scss/screen.scss */
+/* line 108, ../scss/screen.scss */
 .arrow.dsc {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;

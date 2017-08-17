@@ -11,8 +11,7 @@
 }
 
 html, body {
-  padding-right: 20px;
-  padding-right: 20px;
+  padding: 20px;
 }
 
 .search {
@@ -40,6 +39,10 @@ html, body {
 
 table {
   margin-top: 15px;
+
+  thead tr th {
+    cursor: pointer;
+  }
 
   thead tr th:nth-child(1) {
     width: 80px;
